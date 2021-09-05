@@ -1,4 +1,5 @@
 
+using Input_Swipe;
 using UnityEngine;
 
 public class SwipeDetection : MonoBehaviour
@@ -62,18 +63,22 @@ public class SwipeDetection : MonoBehaviour
         if (Vector2.Dot(Vector2.up, direction) > directionThreshold)
         {
             Debug.Log("Swipe Up");
+            SwipeManager.UpSwipeInvoke();
         }
         else if (Vector2.Dot(Vector2.down, direction) > directionThreshold)
         {
             Debug.Log("Swipe Down");
+            SwipeManager.DownSwipeInvoke();
         }
         else if (Vector2.Dot(Vector2.left, direction) > directionThreshold)
         {
             Debug.Log("Swipe Left");
+            SwipeManager.LeftSwipeInvoke();
         }
         else if (Vector2.Dot(Vector2.right, direction) > directionThreshold)
         {
             Debug.Log("Swipe Right");
+            SwipeManager.RightSwipeInvoke();
         }
     }
 
