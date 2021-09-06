@@ -127,7 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minDistanceBetweenCars: 10
   _arrivalRange: 20
-  _maxVelocty: 3
+  _maxVelocity: 3
   _steeringMaxMagnitude: 3
   _layersToCheck:
     serializedVersion: 2

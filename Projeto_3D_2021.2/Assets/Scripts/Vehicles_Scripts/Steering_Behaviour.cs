@@ -7,7 +7,7 @@ using UnityEngine;
 public class Steering_Behaviour : MonoBehaviour{
   [SerializeField] private float _minDistanceBetweenCars;
   [SerializeField] private float _arrivalRange;
-  [SerializeField] private float _maxVelocty;
+  [SerializeField] private float _maxVelocity;
   [SerializeField] private float _steeringMaxMagnitude;
   [SerializeField] private LayerMask _layersToCheck;
   private Rigidbody _rgb;
@@ -21,68 +21,69 @@ public class Steering_Behaviour : MonoBehaviour{
 
     Debug.DrawRay(transform.position, direction * distance, Color.yellow);
 
-    RaycastHit hit;
-
-    Physics.Raycast(transform.position, direction, out hit, distance, layerMask);
+    Physics.Raycast(transform.position, direction, out var hit, distance, layerMask);
 
     return hit;
 
   }
   
-  private Vector3 setMagnitudeVector3(Vector3 inputVector, float newMagnitude) {
-    Vector3 outputVector = inputVector.normalized;
+  private Vector3 SetMagnitudeVector3(Vector3 inputVector, float newMagnitude) {
+    var outputVector = inputVector.normalized;
 
     return outputVector * newMagnitude;
   }
   
   private Vector3 CalculateDesireVelocity(Vector3 targetObjectPosition) {
     
-    float distanceToObject = Vector3.Distance(transform.position, targetObjectPosition);
+    var distanceToObject = Vector3.Distance(transform.position, targetObjectPosition);
 
-    bool isInArrivalBehaviourRange = distanceToObject <= _arrivalRange;
+    var isInArrivalBehaviourRange = distanceToObject <= _arrivalRange;
     
-    Vector3 targetPosition = Vector3.ClampMagnitude(targetObjectPosition - transform.position, distanceToObject - _minDistanceBetweenCars);
+    var targetPosition = Vector3.ClampMagnitude(targetObjectPosition - transform.position, distanceToObject - _minDistanceBetweenCars);
 
     targetPosition += transform.position;
+
+    var desiredVelocity = targetPosition - transform.position;
     
+    if (isInArrivalBehaviourRange) 
+       desiredVelocity = SetMagnitudeVector3(desiredVelocity, _maxVelocity*(distanceToObject/_arrivalRange));
     
-    if (isInArrivalBehaviourRange) {
-      Vector3 desiredVelocity = setMagnitudeVector3(targetPosition - transform.position, _maxVelocty*(distanceToObject/_arrivalRange));
-      return desiredVelocity;
-    }
-    else {
-      Vector3 desiredVelocity = setMagnitudeVector3(targetPosition - transform.position, _maxVelocty);
-      return desiredVelocity;
-    }
+    else 
+      desiredVelocity = SetMagnitudeVector3(desiredVelocity, _maxVelocity);
+    
+    return desiredVelocity;
 
   }
 
   private Vector3 CalculateSteeringForce(Vector3 desiredVelocity) {
     //steering = desiredVelocity - velocity
 
-    Vector3 steeringForce = desiredVelocity - _rgb.velocity;
+    var steeringForce = desiredVelocity - _rgb.velocity;
 
     return Vector3.ClampMagnitude(steeringForce, _steeringMaxMagnitude);
 
   }
 
   private void SeekAndArriveBehaviour(Vector3 targetPosition) {
-    Vector3 desiredVelocity = CalculateDesireVelocity(targetPosition);
-    Vector3 steeringForce = CalculateSteeringForce(desiredVelocity);
+    var desiredVelocity = CalculateDesireVelocity(targetPosition);
+    var steeringForce = CalculateSteeringForce(desiredVelocity);
+   
     _rgb.AddForce(steeringForce);
+    
   }
 
   private void MoveTowards(float velocity, Vector3 direction) {
-    _rgb.velocity = setMagnitudeVector3(direction, velocity);
+    _rgb.velocity = SetMagnitudeVector3(direction, velocity);
   }
 
   private void FixedUpdate() {
     var carAhead = IsThereAObjectAhead(_layersToCheck, Vector3.forward, _minDistanceBetweenCars * 3);
-    if (carAhead.collider) {
+    
+    if (carAhead.collider)
       SeekAndArriveBehaviour(carAhead.point);
-    }
-    else {
-      MoveTowards(_maxVelocty, Vector3.forward);
-    }
+    
+    else  
+      MoveTowards(_maxVelocity, Vector3.forward);
+    
   }
 }
