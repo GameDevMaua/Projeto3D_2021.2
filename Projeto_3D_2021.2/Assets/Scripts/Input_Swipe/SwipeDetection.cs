@@ -1,5 +1,6 @@
 
 using Input_Swipe;
+using Player;
 using UnityEngine;
 
 public class SwipeDetection : MonoBehaviour
@@ -47,14 +48,32 @@ public class SwipeDetection : MonoBehaviour
 
     private void DetectSwipe()
     {
-        if (Vector3.Distance(_startPosition, _endPosition) >= minimumDistance &&
-            (_endTime - _startTime) <= maximumTime)
+        if (!PlayerManager.CanPlayerMove())
+            return;
+        
+        DoDebug();
+        var dir = _endPosition - _startPosition;
+        var deltaTime = _endTime - _startTime;
+        if (dir.magnitude >= minimumDistance &&  deltaTime <= maximumTime)
         {
-                Debug.Log("Swipe Detected");
-                Debug.DrawLine(_startPosition, _endPosition, Color.green, 5f);
-                Vector3 direction = _endPosition - _startPosition;
-                Vector2 direction2D = new Vector2(direction.x, direction.y).normalized;
-                SwipeDirection(direction2D);
+            SwipeDirection(dir.normalized);
+        }
+    }
+
+    private void DoDebug()
+    {
+        var dir = _endPosition - _startPosition;
+        
+        Debug.Log("Swipe Detected");
+        if (dir.magnitude >= minimumDistance && _endTime - _startTime <= maximumTime)
+        {
+            Debug.DrawLine(_startPosition, _endPosition, Color.green, 5f);
+        }else if (!(dir.magnitude >= minimumDistance))
+        {
+            Debug.DrawLine(_startPosition, _endPosition, Color.red, 5f);
+        }else if (_endTime - _startTime <= maximumTime)
+        {
+            Debug.DrawLine(_startPosition, _endPosition, Color.yellow, 5f);
         }
     }
 
@@ -63,25 +82,22 @@ public class SwipeDetection : MonoBehaviour
         if (Vector2.Dot(Vector2.up, direction) > directionThreshold)
         {
             Debug.Log("Swipe Up");
-            SwipeManager.UpSwipeInvoke();
+            SwipeEventManager.UpSwipeInvoke();
         }
         else if (Vector2.Dot(Vector2.down, direction) > directionThreshold)
         {
             Debug.Log("Swipe Down");
-            SwipeManager.DownSwipeInvoke();
+            SwipeEventManager.DownSwipeInvoke();
         }
         else if (Vector2.Dot(Vector2.left, direction) > directionThreshold)
         {
             Debug.Log("Swipe Left");
-            SwipeManager.LeftSwipeInvoke();
+            SwipeEventManager.LeftSwipeInvoke();
         }
         else if (Vector2.Dot(Vector2.right, direction) > directionThreshold)
         {
             Debug.Log("Swipe Right");
-            SwipeManager.RightSwipeInvoke();
+            SwipeEventManager.RightSwipeInvoke();
         }
     }
-
-
-
-    }    
+}    

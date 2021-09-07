@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace Input_Swipe
 {
-    public class SwipeManager : Singleton<SwipeManager>
+    public static class SwipeEventManager //: Singleton<SwipeManager>
     {
         public delegate void SwipeEventHandler();
         
