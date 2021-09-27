@@ -35,7 +35,7 @@ namespace City_Generation
     {
         private int lastStep;
         private aaaa _aaaa;
-        private void update()
+        private void Update()
         {
             var position = transform.position;
             var size = 2;
@@ -104,6 +104,7 @@ namespace City_Generation
     public class TileInfo: ScriptableObject
     {
         public List<TileInfo> nextPossibles = new List<TileInfo>();
+        public List<Vector3> propPositions = new List<Vector3>();
         public Mesh buildingMesh;
         public Vector3 size;
 
@@ -124,7 +125,7 @@ namespace City_Generation
         public GameObject leftBuilding;
         public GameObject roadBuilding;
         public GameObject rightBuilding;
-
+        
         public TileInfo leftBuildingInfo;
         public TileInfo roadBuildingInfo;
         public TileInfo rightBuildingInfo;
@@ -139,7 +140,9 @@ namespace City_Generation
             roadBuildingInfo = center;
             rightBuildingInfo = right;
             leftBuildingInfo = left;
-
+            
+            // todo: calcular alguma forma para não spawnar no mesmo lugar 
+            
             roadBuilding = center.InstantiateClone(position);
             rightBuilding = right.InstantiateClone(position);
             leftBuilding = left.InstantiateClone(position);
