@@ -53,6 +53,8 @@ namespace City_Generation
         private Dictionary<int, GridTile> _currentTiles = new Dictionary<int, GridTile>();
         public void ReCalculateGeneration(int from, int to, int size)
         {
+            //todo: Tentar tirar esses 3 loops pq assim fica zoado
+            
             foreach (var tile in _currentTiles.Values)
             {
                 tile.safe = false;
@@ -144,8 +146,8 @@ namespace City_Generation
             // todo: calcular alguma forma para não spawnar no mesmo lugar 
             
             roadBuilding = center.InstantiateClone(position);
-            rightBuilding = right.InstantiateClone(position);
-            leftBuilding = left.InstantiateClone(position);
+            rightBuilding = right.InstantiateClone(position); //position.x - size?
+            leftBuilding = left.InstantiateClone(position); //position.x + size?
 
             this.position = position;
             size = center.size.z;
