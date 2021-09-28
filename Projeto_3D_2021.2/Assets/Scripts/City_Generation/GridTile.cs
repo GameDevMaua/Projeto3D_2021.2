@@ -53,32 +53,26 @@ namespace City_Generation
         private Dictionary<int, GridTile> _currentTiles = new Dictionary<int, GridTile>();
         public void ReCalculateGeneration(int from, int to, int size)
         {
-            //todo: Tentar tirar esses 3 loops pq assim fica zoado
-            
-            foreach (var tile in _currentTiles.Values)
-            {
-                tile.safe = false;
-            }
-            
-            for (int i = from; i < to; i += size)
-            {
-                var tile = _currentTiles[i];
-                if (tile is null)
-                {
-                    tile = CreateTile(i);
-                }
+            //todo: Tentar tirar esses 3 loops pq assim fica zoado - Check
 
-                tile.safe = true;
+            var tilePositions = _currentTiles.Keys;
+
+            var firstPositionInDicitionary = tilePositions.Min();
+            
+            for (int tilePosition = firstPositionInDicitionary; tilePosition < to; tilePosition += size){
+                var currentTile = _currentTiles[tilePosition];
+                
+                if (currentTile is null)
+                {
+                    CreateTile(tilePosition);
+                }
+                
+                if(tilePosition < from || tilePosition > to)
+                    _currentTiles[tilePosition].Recycle();
             }
 
-            foreach (var tile in _currentTiles.Values)
-            {
-                if (tile.safe == false)
-                {
-                    tile.Recycle();
-                }
-            }
         }
+        
         private GridTile CreateTile(int currentIndex)
         {
             GridTile last = _currentTiles[currentIndex - 1];
