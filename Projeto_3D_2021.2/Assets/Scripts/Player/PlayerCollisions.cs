@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Player{
     public class PlayerCollisions : MonoBehaviour{
-        private Dictionary<string, Action> _collisionDictionary;
+        public Dictionary<string, Action> _collisionDictionary;
         
         private void OnCollisionEnter(Collision other) {
             string gameTag = other.gameObject.tag;
@@ -27,7 +27,6 @@ namespace Player{
                 
                 
             };
-
         }
     }
 }
