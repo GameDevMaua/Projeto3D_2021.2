@@ -4,8 +4,14 @@ using UnityEngine;
 
 namespace Player{
     public class PlayerCollisions : MonoBehaviour{
-        public Dictionary<string, Action> _collisionDictionary;
         
+        private static Dictionary<string, Action> _collisionDictionary = new Dictionary<string, Action> {
+            {"Car", () => print("Colisao com um carro")},
+
+            {"Teste", () => print("Colisao Teste")},
+            
+
+        };
         private void OnCollisionEnter(Collision other) {
             string gameTag = other.gameObject.tag;
             
@@ -13,20 +19,18 @@ namespace Player{
                 else {
                     print("Essa colisao nao esta no dicionario");
                 }
-
         }
 
-
-        private void Awake() {
-            _collisionDictionary = new Dictionary<string, Action> {
-                {"Car", () => print("Colisao com um carro")},
-
-                {"Teste", () => print("Colisao Teste")},
-                
-                {"Predio", ()=> print("Colisao com um predio")}
-                
-                
-            };
+        public void AddOnDictionary(string gameTag, Action funcAction) {
+            if(!_collisionDictionary.ContainsKey(gameTag))  _collisionDictionary.Add(gameTag, funcAction);
+            else {
+                _collisionDictionary[gameTag] = funcAction;
+            }
         }
+        
+        public void RemoveFromDictionary(string gameTag) {
+            if(_collisionDictionary.ContainsKey(gameTag)) _collisionDictionary.Remove(gameTag);
+        }
+        
     }
 }
