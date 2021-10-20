@@ -73,7 +73,7 @@ namespace New_City_Generation{
         }
 
         
-        //todo: As contruções não estão mudando
+        //todo: As meshs dos gameobjects não estão mudando
         public void ChangeTilesBuildings(TileGroup previousTileGroup) {
             for(var i = 0; i<TilesArray.Length; i++) {
                 _leftTile.SetScriptableTile(previousTileGroup._leftTile.PickARandomFromPossiblesList());
@@ -81,7 +81,5 @@ namespace New_City_Generation{
                 _rightTile.SetScriptableTile(previousTileGroup._rightTile.PickARandomFromPossiblesList());
             }
         }
-        
-        
     }
 }

@@ -28,6 +28,8 @@ public class Tile{
 
     public void SetScriptableTile(ScriptableTile scriptableTile) {
         _scriptableTile = scriptableTile;
+
+        
     }
     
 }

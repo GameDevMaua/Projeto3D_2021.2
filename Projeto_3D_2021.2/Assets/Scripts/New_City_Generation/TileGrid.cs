@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Player;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 
 namespace New_City_Generation{ //este é o script que vai no player
     public class TileGrid : MonoBehaviour{
