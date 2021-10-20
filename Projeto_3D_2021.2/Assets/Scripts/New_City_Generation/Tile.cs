@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using ExtensionMethods;
 using New_City_Generation;
 using UnityEngine;

@@ -20,7 +20,7 @@ namespace New_City_Generation{ //este é o script que vai no player
         
         void Update() {
             CallEventOnPlayerGridPositionUpdate();
-            transform.position += Vector3.forward * Time.deltaTime * 84;
+            // transform.position += Vector3.forward * Time.deltaTime * 84;
         }
 
         private void Start() {
@@ -33,7 +33,6 @@ namespace New_City_Generation{ //este é o script que vai no player
             _previousPlayerGridPosition = _currentPlayerGridPosition;
 
             OnPlayerGridPositionUpdate += UpdateTileGroups;
-
         }
 
         private int GetPositionInGrid(Vector3 worldPosition) => Mathf.RoundToInt(worldPosition.z) / _tileGroupList[0].TileSize;
