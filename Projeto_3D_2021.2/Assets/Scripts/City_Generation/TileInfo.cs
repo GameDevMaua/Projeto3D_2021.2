@@ -18,15 +18,5 @@ namespace City_Generation
             GameObject clone = Instantiate(prefab,position,Quaternion.Euler(-90,0,0));
             return clone;
         }
-        
-        // public GameObject InstantiateClone(Vector3 position)
-        // {
-        //     GameObject gameObj = BuildingFactory.PoolOutGameObj();
-        //     gameObj.transform.position = position;
-        //     var meshRender = gameObj.GetComponent<MeshFilter>();
-        //     meshRender.sharedMesh = buildingMesh;
-        //     gameObj.SetActive(true);
-        //     return gameObj;
-        // }
     }
 }
