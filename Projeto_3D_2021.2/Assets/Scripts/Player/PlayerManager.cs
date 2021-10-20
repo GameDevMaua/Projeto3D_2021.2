@@ -1,6 +1,4 @@
-﻿using System;
-using UnityEditor.Experimental.GraphView;
-
+﻿
 namespace Player
 {
     public class PlayerManager : Singleton<PlayerManager>

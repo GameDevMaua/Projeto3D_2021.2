@@ -52,9 +52,9 @@ namespace New_City_Generation{
             _rightTile = new Tile(rightTilePosition, rightBuilding);
         }
 
-        public void DeactivateTiles() {
+        public void DestroyTiles() {
             foreach (var tile in TilesArray) {
-                tile.TileGameObject.SetActive(false);
+                GameObject.Destroy(tile.TileGameObject);
             }
         }
         
@@ -70,16 +70,6 @@ namespace New_City_Generation{
             TilesArray[2].TileGameObject.transform.position = newMiddlePosition + Vector3.left * _aroundTilesOffset;
 
             _middleTilePosition = newMiddlePosition;
-        }
-
-        
-        //todo: As meshs dos gameobjects não estão mudando
-        public void ChangeTilesBuildings(TileGroup previousTileGroup) {
-            for(var i = 0; i<TilesArray.Length; i++) {
-                _leftTile.SetScriptableTile(previousTileGroup._leftTile.PickARandomFromPossiblesList());
-                _middleTile.SetScriptableTile(previousTileGroup._middleTile.PickARandomFromPossiblesList());
-                _rightTile.SetScriptableTile(previousTileGroup._rightTile.PickARandomFromPossiblesList());
-            }
         }
     }
 }

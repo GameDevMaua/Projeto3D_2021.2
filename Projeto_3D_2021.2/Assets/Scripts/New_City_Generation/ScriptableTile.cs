@@ -7,9 +7,8 @@ namespace New_City_Generation{
     public class ScriptableTile : ScriptableObject{
         public List<ScriptableTile> nextPossibles = new List<ScriptableTile>();
         public List<Vector3> propPositions = new List<Vector3>();
-        public Mesh buildingMesh;
+        public MeshRenderer buildingMesh;
         public GameObject buildingPrefab;
-        public int size;
         
     }
 }

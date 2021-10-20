@@ -6,7 +6,7 @@ namespace New_City_Generation{
         private static Queue<TileGroup> _tileGroupsQueue = new Queue<TileGroup>();
 
         public static void PoolInTileGroup(TileGroup tileGroup) {
-            tileGroup.DeactivateTiles();
+            tileGroup.DestroyTiles();
             _tileGroupsQueue.Enqueue(tileGroup);
         }
 

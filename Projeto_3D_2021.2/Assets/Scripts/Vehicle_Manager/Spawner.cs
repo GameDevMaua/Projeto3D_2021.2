@@ -1,7 +1,4 @@
-﻿using System;
-using UnityEditor;
-using UnityEditor.SceneTemplate;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Vehicle_Manager
 {

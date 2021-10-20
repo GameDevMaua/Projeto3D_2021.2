@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Player;
 using UnityEngine;
 
 namespace New_City_Generation{ //este é o script que vai no player
@@ -21,6 +20,7 @@ namespace New_City_Generation{ //este é o script que vai no player
         
         void Update() {
             CallEventOnPlayerGridPositionUpdate();
+            transform.position += Vector3.forward * Time.deltaTime * 84;
         }
 
         private void Start() {
@@ -29,7 +29,7 @@ namespace New_City_Generation{ //este é o script que vai no player
             
             InitializeTileGroups();
             
-            _currentPlayerGridPosition = GetPositionInGrid(PlayerManager.Instance.transform.position);
+            _currentPlayerGridPosition = GetPositionInGrid(transform.position);
             _previousPlayerGridPosition = _currentPlayerGridPosition;
 
             OnPlayerGridPositionUpdate += UpdateTileGroups;
@@ -39,7 +39,7 @@ namespace New_City_Generation{ //este é o script que vai no player
         private int GetPositionInGrid(Vector3 worldPosition) => Mathf.RoundToInt(worldPosition.z) / _tileGroupList[0].TileSize;
 
         private void CallEventOnPlayerGridPositionUpdate() {
-            _currentPlayerGridPosition = GetPositionInGrid(PlayerManager.Instance.transform.position);
+            _currentPlayerGridPosition = GetPositionInGrid(transform.position);
             
             if (_currentPlayerGridPosition <= _previousPlayerGridPosition) return;
             
@@ -52,13 +52,14 @@ namespace New_City_Generation{ //este é o script que vai no player
             
             TileGroup previousGroup = _tileGroupList[0];
             
-            TileGroupObjectPooling.PoolInTileGroup(_tileGroupList[0]);
+            previousGroup.DestroyTiles();
             _tileGroupList.RemoveAt(0);
 
-            var newTileGroup = TileGroupObjectPooling.PoolOutTileGroup();
+            var lastTileInList = _tileGroupList.Last();
+            
+            var newTilePosition = lastTileInList.MiddleTilePosition + Vector3.forward * lastTileInList.TileSize;
+            var newTileGroup = new TileGroup(newTilePosition, lastTileInList, lastTileInList.TileSize);
         
-            newTileGroup.ChangeTilesBuildings(previousGroup);
-            newTileGroup.SetGroupPosition(_tileGroupList.Last().MiddleTilePosition + Vector3.forward * _firstGroupEver.TileSize );
             
             _tileGroupList.Add(newTileGroup);
             
@@ -72,7 +73,5 @@ namespace New_City_Generation{ //este é o script que vai no player
                    _tileGroupList[i - 1]));
             }
         }
-        
-        
     }
 }

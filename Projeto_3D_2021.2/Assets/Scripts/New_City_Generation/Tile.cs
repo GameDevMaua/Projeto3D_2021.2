@@ -8,10 +8,18 @@ public class Tile{
     private Vector3 _position;
     private ScriptableTile _scriptableTile;
 
-    public ScriptableTile ScriptableTile => _scriptableTile;
-    public GameObject TileGameObject => _gameObject;
+    public ScriptableTile ScriptableTile {
+        get => _scriptableTile; 
+        set => _scriptableTile = value;
+    }
+
+    public GameObject TileGameObject {
+        get => _gameObject;
+        set => _gameObject = value;
+    }
 
     private GameObject _gameObject;
+    
     
     
     public Tile(Vector3 position, ScriptableTile scriptableTile) {
@@ -21,15 +29,10 @@ public class Tile{
        _gameObject = GameObject.Instantiate(_scriptableTile.buildingPrefab, _position, Quaternion.identity);
         
     }
-
+    
     public ScriptableTile PickARandomFromPossiblesList() {
         return _scriptableTile.nextPossibles.GetRandom();
     }
 
-    public void SetScriptableTile(ScriptableTile scriptableTile) {
-        _scriptableTile = scriptableTile;
-
-        
-    }
     
 }
