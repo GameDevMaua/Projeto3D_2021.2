@@ -52,24 +52,12 @@ namespace New_City_Generation{
             _rightTile = new Tile(rightTilePosition, rightBuilding);
         }
 
+        
         public void DestroyTiles() {
             foreach (var tile in TilesArray) {
                 GameObject.Destroy(tile.TileGameObject);
             }
         }
         
-        public void ActivateTiles() {
-            foreach (var tile in TilesArray) {
-                tile.TileGameObject.SetActive(true);
-            }
-        }
-
-        public void SetGroupPosition(Vector3 newMiddlePosition) {
-            TilesArray[0].TileGameObject.transform.position = newMiddlePosition - Vector3.left * _aroundTilesOffset;
-            TilesArray[1].TileGameObject.transform.position = newMiddlePosition;
-            TilesArray[2].TileGameObject.transform.position = newMiddlePosition + Vector3.left * _aroundTilesOffset;
-
-            _middleTilePosition = newMiddlePosition;
-        }
     }
 }

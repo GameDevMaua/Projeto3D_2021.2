@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 
 namespace New_City_Generation{ //este é o script que vai no player
-    public class TileGrid : MonoBehaviour{
+    public class TileGroupMenager : MonoBehaviour{
         [SerializeField] private int _groupListSize;
         [SerializeField] private ScriptableTile _firstLeftTile;
         [SerializeField] private ScriptableTile _firstMiddleTile;
@@ -24,6 +24,7 @@ namespace New_City_Generation{ //este é o script que vai no player
         }
 
         private void Start() {
+            
             _firstGroupEver = //Criando o primeiro tile na unha
                 new TileGroup(_worldPlayerPosition, 50, _firstLeftTile, _firstMiddleTile, _firstRightTile);
             
@@ -37,6 +38,8 @@ namespace New_City_Generation{ //este é o script que vai no player
 
         private int GetPositionInGrid(Vector3 worldPosition) => Mathf.RoundToInt(worldPosition.z) / _tileGroupList[0].TileSize;
 
+        
+        //Quando Criar e destruir o Groups
         private void CallEventOnPlayerGridPositionUpdate() {
             _currentPlayerGridPosition = GetPositionInGrid(transform.position);
             
@@ -46,7 +49,8 @@ namespace New_City_Generation{ //este é o script que vai no player
             OnPlayerGridPositionUpdate?.Invoke();
         }
 
-
+        
+        //Destruindo e criando tilesgroups já existentes
         private void UpdateTileGroups() { //esse método estará dentro do evento OnPlayerGridPositionUpdate
             
             TileGroup previousGroup = _tileGroupList[0];
@@ -64,11 +68,19 @@ namespace New_City_Generation{ //este é o script que vai no player
             
         }
         
+        // Criando novos tilesGroups
+        public static TileGroup CreateTileGroup(Vector3 middleTilePosition, int groupSize, TileGroup previousTileGroup = null, ScriptableTile leftTile = null, ScriptableTile middleTile = null, ScriptableTile rightTile = null) {
+            if (previousTileGroup != null) return new TileGroup(middleTilePosition, previousTileGroup, groupSize);
+
+            return new TileGroup(middleTilePosition, groupSize, leftTile, middleTile, rightTile);
+        }
+        
+        //Inicializando TileGroups, Ou seja criando novos TilesGroups
         private void InitializeTileGroups() {
             _tileGroupList.Add(_firstGroupEver);  
             for (var i = 1; i < _groupListSize; i++) {
                 Vector3 middlePosition = _worldPlayerPosition + (Vector3.forward * i * _firstGroupEver.TileSize);
-               _tileGroupList.Add(TileGroupObjectPooling.CreateTileGroup(middlePosition, _firstGroupEver.TileSize,
+               _tileGroupList.Add(CreateTileGroup(middlePosition, _firstGroupEver.TileSize,
                    _tileGroupList[i - 1]));
             }
         }

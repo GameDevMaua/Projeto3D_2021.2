@@ -5,6 +5,7 @@ using UnityEngine;
 public class Tile{
     private Vector3 _position;
     private ScriptableTile _scriptableTile;
+    private GameObject _gameObject;
 
     public ScriptableTile ScriptableTile {
         get => _scriptableTile; 
@@ -15,10 +16,6 @@ public class Tile{
         get => _gameObject;
         set => _gameObject = value;
     }
-
-    private GameObject _gameObject;
-    
-    
     
     public Tile(Vector3 position, ScriptableTile scriptableTile) {
         _position = position;
