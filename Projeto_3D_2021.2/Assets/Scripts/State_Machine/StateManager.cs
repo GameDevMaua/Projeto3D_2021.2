@@ -4,9 +4,9 @@ namespace State_Machine{
     public class StateManager : MonoBehaviour{
         public BaseState _currentState { get; set; }
         
-        public BaseState fallingState;
-        public BaseState flyingState;
-        public BaseState drivingState;
+        public Falling fallingState;
+        public Flying flyingState;
+        public Driving drivingState;
         
         
         private void Start() {

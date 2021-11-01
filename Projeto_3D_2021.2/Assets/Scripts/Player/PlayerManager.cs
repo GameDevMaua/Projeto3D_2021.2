@@ -1,8 +1,11 @@
 ﻿
+using UnityEngine;
+
 namespace Player
 {
-    public class PlayerManager : Singleton<PlayerManager>
-    {
+    public class PlayerManager : Singleton<PlayerManager>{
+        public GameObject character;
+        
         private static bool _isPlayerMoving = false;
         private static void StartPlayerMove() => _isPlayerMoving = true;
         private static void EndPlayerMove() => _isPlayerMoving = false;

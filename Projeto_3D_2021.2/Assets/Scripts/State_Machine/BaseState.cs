@@ -26,7 +26,7 @@ namespace State_Machine{
         }
 
         public virtual void OnExecuteState() {
-            
+            //todo: colocar pro gameobj do player seguir o target
         }
         
         public virtual void OnStateLeaving() {

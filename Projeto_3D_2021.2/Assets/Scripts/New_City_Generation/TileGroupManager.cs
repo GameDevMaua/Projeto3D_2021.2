@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace New_City_Generation{ //este é o script que vai no player
 
-    public class TileGroupMenager : MonoBehaviour{
+    public class TileGroupManager : MonoBehaviour{
         [SerializeField] private int _groupListSize;
         [SerializeField] private ScriptableTile _firstLeftTile;
         [SerializeField] private ScriptableTile _firstMiddleTile;
@@ -21,7 +21,6 @@ namespace New_City_Generation{ //este é o script que vai no player
         
         void Update() {
             CallEventOnPlayerGridPositionUpdate();
-            // transform.position += Vector3.forward * Time.deltaTime * 84;
         }
 
         private void Start() {

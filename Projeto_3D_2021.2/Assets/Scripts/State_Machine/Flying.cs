@@ -3,9 +3,8 @@ namespace State_Machine{
     public class Flying : BaseState{
 
         public Flying(StateManager stateManager) : base(stateManager) {
-            
         }
-        
+
         public override void OnExecuteState() {
             
         }
