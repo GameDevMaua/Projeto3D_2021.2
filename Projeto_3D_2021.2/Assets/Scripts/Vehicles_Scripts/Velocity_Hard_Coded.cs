@@ -3,7 +3,7 @@ using UnityEngine;
 public class Velocity_Hard_Coded : MonoBehaviour{
     private Rigidbody _rgb;
 
-    [SerializeField] private Vector3 _velocity;
+    [SerializeField] public Vector3 _velocity;
     private void Start() {
         _rgb = GetComponent<Rigidbody>();
     }
