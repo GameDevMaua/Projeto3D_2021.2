@@ -27,7 +27,7 @@ namespace New_City_Generation{ //este é o script que vai no player
             
             InitializeTileGroups();
             
-            _currentPlayerGridPosition = GetPositionInGrid(transform.position);
+            _currentPlayerGridPosition = GetPositionInGrid(Player.PlayerSingleton.Instance.transform.position);
             _previousPlayerGridPosition = _currentPlayerGridPosition;
 
             OnPlayerGridPositionUpdate += UpdateTileGroups;
@@ -37,7 +37,7 @@ namespace New_City_Generation{ //este é o script que vai no player
 
         
         private void CallEventOnPlayerGridPositionUpdate() {
-            _currentPlayerGridPosition = GetPositionInGrid(transform.position);
+            _currentPlayerGridPosition = GetPositionInGrid(Player.PlayerSingleton.Instance.transform.position);
             
             if (_currentPlayerGridPosition <= _previousPlayerGridPosition) return;
             
