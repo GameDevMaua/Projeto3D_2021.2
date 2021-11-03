@@ -1,6 +1,7 @@
 ﻿
 using System;
 using Input_Swipe;
+using Player;
 using UnityEngine;
 
 namespace State_Machine{
@@ -45,16 +46,11 @@ namespace State_Machine{
         }
 
         public virtual void OnSwipeLeft() {
-            
+            PlayerTarget.Instance.MoveTargetHorizontaly(-1);
         }
 
         public virtual void OnSwipeRight() {
-            
+            PlayerTarget.Instance.MoveTargetHorizontaly(1);
         }
-        
-        
-        
-        
-
     }
 }
