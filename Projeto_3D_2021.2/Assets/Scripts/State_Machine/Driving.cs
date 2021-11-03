@@ -34,13 +34,7 @@ namespace State_Machine{
             _stateManager.ChangeCurrentState(_stateManager.fallingState);
         }
 
-        public override void OnSwipeLeft() {
-            
-        }
 
-        public override void OnSwipeRight() {
-      
-        }
 
         public void OnCarCrashed(GameObject otherCar) {
             //todo: aplicar força no singlenton do player

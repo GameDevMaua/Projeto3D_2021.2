@@ -21,12 +21,6 @@ namespace State_Machine{
             _stateManager.ChangeCurrentState(_stateManager.fallingState);
         }
 
-        public override void OnSwipeLeft() {
-            
-        }
 
-        public override void OnSwipeRight() {
-            
-        }
     }
 }
