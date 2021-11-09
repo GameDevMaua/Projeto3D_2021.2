@@ -1,5 +1,6 @@
 using UnityEngine;
 using DG.Tweening;
+using Player;
 
 namespace Road
 {
@@ -9,7 +10,7 @@ namespace Road
         private void OnMouseDown()
         {
             print("test");
-            Player.Instance.transform.DOMove(transform.position, 1f).SetEase(Ease.InOutQuad);
+            PlayerManager.Instance.transform.DOMove(transform.position, 1f).SetEase(Ease.InOutQuad);
         }
     }
 }

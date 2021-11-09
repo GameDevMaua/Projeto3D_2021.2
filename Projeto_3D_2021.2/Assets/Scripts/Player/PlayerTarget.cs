@@ -21,6 +21,7 @@ namespace Player{
             
             _velocity = new Vector3(0, 0, _fowardVelocity);
             
+            
         }
 
         private void Update() {
@@ -28,10 +29,16 @@ namespace Player{
 
         }
 
+        
+        [ContextMenu("Testar")]
+        public void MoveRight() {
+            MoveTargetHorizontaly(1);
+        }
         public void MoveTargetHorizontaly(int direction) { //direction must be equals to -1 or 1;
             var canMove = (CurrentArrayPosition + direction >= 0 && CurrentArrayPosition + direction <= 2) &&
                           (direction == -1 || direction == 1);
             if(canMove) {
+                print("Andei");
                 transform.position += Vector3.right * _horizontalPositionsArray[CurrentArrayPosition + direction];
                 CurrentArrayPosition += direction;
             }

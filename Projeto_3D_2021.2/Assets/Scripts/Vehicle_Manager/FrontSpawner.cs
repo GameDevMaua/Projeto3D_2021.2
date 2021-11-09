@@ -4,7 +4,7 @@ namespace Vehicle_Manager
 {
     public class FrontSpawner : Spawner
     {
-        private protected override void CalculateNewPosition()
+        protected override void CalculateNewPosition()
         {
             var oldPosition = currentTransform.position;
             var cameraPosition = followTransform.position;
@@ -16,5 +16,12 @@ namespace Vehicle_Manager
             spawnerPosition = newPosition;
             currentTransform.position = newPosition;
         }
+        
+
+       protected override void SpawnNewVehicle() {
+            lastSpawnTime = Time.time;
+            VehicleManager.Instance.CreateNewVehicle(this, carVelocity, arrivalRange);
+        }
+        
     }
 }

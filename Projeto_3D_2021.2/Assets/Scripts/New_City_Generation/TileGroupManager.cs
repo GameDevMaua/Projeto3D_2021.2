@@ -33,7 +33,9 @@ namespace New_City_Generation{ //este é o script que vai no player
             OnPlayerGridPositionUpdate += UpdateTileGroups;
         }
 
-        private int GetPositionInGrid(Vector3 worldPosition) => Mathf.RoundToInt(worldPosition.z) / _tileGroupList[0].TileSize;
+        private int GetPositionInGrid(Vector3 worldPosition) {
+            return Mathf.RoundToInt(worldPosition.z) / _tileGroupList[0].TileSize;
+        }
 
         
         private void CallEventOnPlayerGridPositionUpdate() {
@@ -69,6 +71,7 @@ namespace New_City_Generation{ //este é o script que vai no player
 
             foreach (var tileGroup in firstGroupGeneration) {
                 _tileGroupList.Add(tileGroup);
+                print(tileGroup);
             }
         }
     }

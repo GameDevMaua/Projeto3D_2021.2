@@ -1,6 +1,4 @@
-﻿using System;
-using System.Runtime.CompilerServices;
-
+﻿
 namespace Input_Swipe
 {
     public static class SwipeEventManager //: Singleton<SwipeManager>

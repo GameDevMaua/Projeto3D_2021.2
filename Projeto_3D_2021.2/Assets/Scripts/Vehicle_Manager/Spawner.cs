@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEditor;
+using UnityEngine;
 
 namespace Vehicle_Manager
 {
@@ -7,23 +9,30 @@ namespace Vehicle_Manager
         [HideInInspector] public Vector3 spawnerPosition;
         
         [SerializeField] private float cooldown;
-        [SerializeField] private float lastSpawnTime;
+        protected float lastSpawnTime;
         [SerializeField] protected float offset;
         
+        
+        [SerializeField] protected float carVelocity;
+        [SerializeField] protected float arrivalRange;
+
         public Transform followTransform;
         protected Transform currentTransform;
 
-        private void Start()
+        protected virtual void Start()
         {
             currentTransform = GetComponent<Transform>();
+
+            transform.position = followTransform.position + Vector3.down * 3; //esse 10 é um valor arbitrário. É só pra fazer com o que o spawner fique um pouco abaixo do player
+            
         }
 
-        private void SpawnNewVehicle()
+        protected virtual void SpawnNewVehicle()
         {
             lastSpawnTime = Time.time;
-            VehicleManager.Instance.CreateNewVehicle(this);
-        }
-        private protected abstract void CalculateNewPosition();
+            VehicleManager.Instance.CreateNewVehicle(this, 5, 10f);
+        } 
+        protected abstract void CalculateNewPosition();
         private void Update()
         {
             CalculateNewPosition();
@@ -33,5 +42,12 @@ namespace Vehicle_Manager
             }
         }
         private bool CooldownIsOver() => lastSpawnTime + cooldown<Time.time;
+
+
+        private void OnDrawGizmos() {
+            BoxCollider boxCollider = GetComponent<BoxCollider>();
+            Vector3 colliderPosition = boxCollider.center + boxCollider.transform.position;
+                Gizmos.DrawWireCube(colliderPosition, Vector3.one);
+        }
     }
 }

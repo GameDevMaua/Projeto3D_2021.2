@@ -11,10 +11,15 @@ namespace Vehicle_Manager
         [SerializeField] private GameObject vehiclePrefab;
     
 
-        public void CreateNewVehicle(Spawner spawner)
+        public void CreateNewVehicle(Spawner spawner, float carVelocity, float arrivalRange)
         {
             var position = spawner.spawnerPosition;
             var vehicle = GameObject.Instantiate(vehiclePrefab,position,Quaternion.identity);
+
+            var steeringBehaviour = vehicle.GetComponent<Steering_Behaviour>();
+
+            steeringBehaviour.MaxVelocity = carVelocity;
+            steeringBehaviour.ArrivalRange = arrivalRange;
             _vehicleList.Add(vehicle);
             _carQuantity++;
         
@@ -23,7 +28,6 @@ namespace Vehicle_Manager
 
         public void DestroyVehicle(GameObject gameObj)
         {
-            print(_vehicleList.Remove(gameObj));
             Destroy(gameObj);
             _carQuantity--;
         }

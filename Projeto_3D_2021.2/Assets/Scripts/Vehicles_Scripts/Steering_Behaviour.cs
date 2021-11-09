@@ -13,6 +13,16 @@ public class Steering_Behaviour : MonoBehaviour{
   private Rigidbody _rgb;
   private Vector3 _targetPosition;
 
+  public float MaxVelocity {
+    get => _maxVelocity;
+    set => _maxVelocity = value;
+  }
+
+  public float ArrivalRange {
+    get => _arrivalRange;
+    set => _arrivalRange = value;
+  }
+  
   private void Start() {
     _rgb = GetComponent<Rigidbody>();
   }
