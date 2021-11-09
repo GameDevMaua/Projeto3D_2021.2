@@ -11,7 +11,7 @@ namespace Vehicle_Manager
         [SerializeField] private GameObject vehiclePrefab;
     
 
-        public void CreateNewVehicle(Spawner spawner, float carVelocity, float arrivalRange)
+        public void CreateNewVehicle(Spawner spawner, float carVelocity, float arrivalRange, float maxDistanceBetweenCars)
         {
             var position = spawner.spawnerPosition;
             var vehicle = GameObject.Instantiate(vehiclePrefab,position,Quaternion.identity);
@@ -20,6 +20,7 @@ namespace Vehicle_Manager
 
             steeringBehaviour.MaxVelocity = carVelocity;
             steeringBehaviour.ArrivalRange = arrivalRange;
+            steeringBehaviour.MaxDistanceBetweenCars = maxDistanceBetweenCars;
             _vehicleList.Add(vehicle);
             _carQuantity++;
         

@@ -1,12 +1,9 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Steering_Behaviour : MonoBehaviour{
-  [SerializeField] private float _minDistanceBetweenCars;
-  [SerializeField] private float _arrivalRange;
+  [SerializeField] private float _maxDistanceBetweenCars;
+  [SerializeField] private float _arrivalBehaviourRange;
   [SerializeField] private float _maxVelocity;
   [SerializeField] private float _steeringMaxMagnitude;
   [SerializeField] private LayerMask _layersToCheck;
@@ -19,8 +16,13 @@ public class Steering_Behaviour : MonoBehaviour{
   }
 
   public float ArrivalRange {
-    get => _arrivalRange;
-    set => _arrivalRange = value;
+    get => _arrivalBehaviourRange;
+    set => _arrivalBehaviourRange = value;
+  }
+  
+  public float MaxDistanceBetweenCars {
+    get => _maxDistanceBetweenCars;
+    set => _maxDistanceBetweenCars = value;
   }
   
   private void Start() {
@@ -47,16 +49,16 @@ public class Steering_Behaviour : MonoBehaviour{
     
     var distanceToObject = Vector3.Distance(transform.position, targetObjectPosition);
 
-    var isInArrivalBehaviourRange = distanceToObject <= _arrivalRange;
+    var isInArrivalBehaviourRange = distanceToObject <= _arrivalBehaviourRange;
     
-    var targetPosition = Vector3.ClampMagnitude(targetObjectPosition - transform.position, distanceToObject - _minDistanceBetweenCars);
+    var targetPosition = Vector3.ClampMagnitude(targetObjectPosition - transform.position, distanceToObject - _maxDistanceBetweenCars);
 
     targetPosition += transform.position;
 
     var desiredVelocity = targetPosition - transform.position;
     
     if (isInArrivalBehaviourRange) 
-       desiredVelocity = SetMagnitudeVector3(desiredVelocity, _maxVelocity*(distanceToObject/_arrivalRange));
+       desiredVelocity = SetMagnitudeVector3(desiredVelocity, _maxVelocity*(distanceToObject/_arrivalBehaviourRange));
     
     else 
       desiredVelocity = SetMagnitudeVector3(desiredVelocity, _maxVelocity);
@@ -87,7 +89,7 @@ public class Steering_Behaviour : MonoBehaviour{
   }
 
   private void FixedUpdate() {
-    var carAhead = IsThereAObjectAhead(_layersToCheck, Vector3.forward, _minDistanceBetweenCars * 3);
+    var carAhead = IsThereAObjectAhead(_layersToCheck, Vector3.forward, _maxDistanceBetweenCars * 3);
     
     if (carAhead.collider)
       SeekAndArriveBehaviour(carAhead.point);

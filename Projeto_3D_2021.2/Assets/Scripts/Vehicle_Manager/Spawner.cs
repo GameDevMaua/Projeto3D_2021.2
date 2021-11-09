@@ -15,6 +15,7 @@ namespace Vehicle_Manager
         
         [SerializeField] protected float carVelocity;
         [SerializeField] protected float arrivalRange;
+        [SerializeField] protected float maxDistanceBetweenCars;
 
         public Transform followTransform;
         protected Transform currentTransform;
@@ -27,11 +28,10 @@ namespace Vehicle_Manager
             
         }
 
-        protected virtual void SpawnNewVehicle()
-        {
+        protected virtual void SpawnNewVehicle() {
             lastSpawnTime = Time.time;
-            VehicleManager.Instance.CreateNewVehicle(this, 5, 10f);
-        } 
+            VehicleManager.Instance.CreateNewVehicle(this, carVelocity, arrivalRange, maxDistanceBetweenCars);
+        }
         protected abstract void CalculateNewPosition();
         private void Update()
         {

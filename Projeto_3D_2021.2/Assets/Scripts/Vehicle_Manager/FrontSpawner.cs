@@ -17,11 +17,6 @@ namespace Vehicle_Manager
             currentTransform.position = newPosition;
         }
         
-
-       protected override void SpawnNewVehicle() {
-            lastSpawnTime = Time.time;
-            VehicleManager.Instance.CreateNewVehicle(this, carVelocity, arrivalRange);
-        }
         
     }
 }
