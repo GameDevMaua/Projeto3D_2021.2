@@ -271,7 +271,7 @@ MonoBehaviour:
   offset: 25.26
   carVelocity: 0
   arrivalRange: 0
-  followTransform: {fileID: 0}
+  followTransform: {fileID: 607319392}
 --- !u!4 &284422828
 Transform:
   m_ObjectHideFlags: 0
@@ -388,8 +388,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 349595580}
-  m_LocalRotation: {x: 0.055186186, y: -0.00044913328, z: 0.000024823781, w: 0.998476}
-  m_LocalPosition: {x: 0.00999999, y: 1.232537, z: -11.116}
+  m_LocalRotation: {x: 0.05518616, y: -0.00044913316, z: 0.000024823767, w: 0.998476}
+  m_LocalPosition: {x: 1.6129377, y: 3.4508321, z: -14.676001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -454,7 +454,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1265978559384394878, guid: a2bee616a8d705d48adffcbb70a22e05, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.86
+      value: -3.56
       objectReference: {fileID: 0}
     - target: {fileID: 1265978559384394878, guid: a2bee616a8d705d48adffcbb70a22e05, type: 3}
       propertyPath: m_LocalRotation.w
@@ -486,6 +486,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2bee616a8d705d48adffcbb70a22e05, type: 3}
+--- !u!4 &607319392 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1265978559384394878, guid: a2bee616a8d705d48adffcbb70a22e05, type: 3}
+  m_PrefabInstance: {fileID: 607319391}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &874866663
 GameObject:
   m_ObjectHideFlags: 0
@@ -522,8 +527,8 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 0}
+  m_LookAt: {fileID: 607319392}
+  m_Follow: {fileID: 607319392}
   m_Lens:
     FieldOfView: 44
     OrthographicSize: 5
@@ -546,8 +551,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 874866663}
-  m_LocalRotation: {x: 0.055186186, y: -0.00044913328, z: 0.000024823781, w: 0.998476}
-  m_LocalPosition: {x: 0.00999999, y: 1.232537, z: -11.116}
+  m_LocalRotation: {x: 0.05518616, y: -0.00044913316, z: 0.000024823767, w: 0.998476}
+  m_LocalPosition: {x: 1.6129377, y: 3.4508321, z: -14.676001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 213737711}
@@ -646,7 +651,7 @@ MonoBehaviour:
   offset: 129.5
   carVelocity: 0
   arrivalRange: 0
-  followTransform: {fileID: 0}
+  followTransform: {fileID: 607319392}
 --- !u!114 &1322935248
 MonoBehaviour:
   m_ObjectHideFlags: 0

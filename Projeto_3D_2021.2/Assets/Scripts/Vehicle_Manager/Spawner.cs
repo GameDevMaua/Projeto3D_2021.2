@@ -23,7 +23,7 @@ namespace Vehicle_Manager
         {
             currentTransform = GetComponent<Transform>();
 
-            transform.position = followTransform.position + Vector3.down * 3; //esse 10 é um valor arbitrário. É só pra fazer com o que o spawner fique um pouco abaixo do player
+            transform.position = followTransform.position + Vector3.down * 3; //esse 3 é um valor arbitrário. É só pra fazer com o que o spawner fique um pouco abaixo do player
             
         }
 
