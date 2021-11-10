@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Input_Swipe;
+using UnityEngine;
 
 namespace Player{
     public class PlayerTarget : Singleton<PlayerTarget>{
@@ -29,17 +30,28 @@ namespace Player{
 
         }
 
-        
-        [ContextMenu("Testar")]
+        public void Awake() {
+            SwipeEventManager.LeftSwipeEvent += MoveLeft;
+            SwipeEventManager.LeftSwipeEvent += MoveRight;
+        }
+
+
+        [ContextMenu("Mover Direita")]
         public void MoveRight() {
             MoveTargetHorizontaly(1);
         }
+        
+        [ContextMenu("Mover Esquerda")]
+        public void MoveLeft() {
+            MoveTargetHorizontaly(-1);
+        }
         public void MoveTargetHorizontaly(int direction) { //direction must be equals to -1 or 1;
-            var canMove = (CurrentArrayPosition + direction >= 0 && CurrentArrayPosition + direction <= 2) &&
-                          (direction == -1 || direction == 1);
+            var canMove = ((CurrentArrayPosition + direction) >= 0 && (CurrentArrayPosition + direction) <= 2);
             if(canMove) {
                 print("Andei");
-                transform.position += Vector3.right * _horizontalPositionsArray[CurrentArrayPosition + direction];
+                var newPosition = new Vector3(_horizontalPositionsArray[CurrentArrayPosition + direction],
+                    transform.position.y, transform.position.z);
+                transform.position = newPosition;
                 CurrentArrayPosition += direction;
             }
         }

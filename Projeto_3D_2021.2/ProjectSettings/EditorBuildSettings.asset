@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/city_generation_test.unity
     guid: 2522ec1dbb34b334499239986c648d0a
+  - enabled: 1
+    path: Assets/Scenes/InputScene.unity
+    guid: 645c29ab04af8634385d42481821eac6
   m_configObjects: {}

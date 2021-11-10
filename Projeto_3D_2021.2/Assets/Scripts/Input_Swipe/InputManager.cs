@@ -14,7 +14,7 @@ public class InputManager : Singleton<InputManager>
     #endregion
         
     private PlayerControls _playerControls;
-    private Camera _mainCamera; 
+    public Camera _mainCamera; 
 
     private void Awake()
     {

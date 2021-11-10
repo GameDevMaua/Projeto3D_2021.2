@@ -72,7 +72,6 @@ namespace New_City_Generation{ //este é o script que vai no player
 
             foreach (var tileGroup in firstGroupGeneration) {
                 _tileGroupList.Add(tileGroup);
-                print(tileGroup);
             }
         }
     }

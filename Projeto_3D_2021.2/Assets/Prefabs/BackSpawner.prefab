@@ -51,8 +51,8 @@ MonoBehaviour:
     m_Bits: 64
   _safeZone: 5
   carVelocity: 20
-  arrivalRange: 10
-  maxDistanceBetweenCars: 7
+  arrivalRange: 15
+  maxDistanceBetweenCars: 3
   steeringForce: 8
   followTransform: {fileID: 0}
 --- !u!1001 &1944984714475582271
