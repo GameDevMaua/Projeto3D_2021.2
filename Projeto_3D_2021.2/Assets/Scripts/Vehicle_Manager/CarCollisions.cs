@@ -35,19 +35,6 @@ namespace Vehicle_Manager{
         private void OnCarCrashed(GameObject otherCar) {
             Destroy(this);
         }
-
-        // public void AddOnDictionary(string gameTag, Action<GameObject> funcAction) {
-        //     if(!_collisionDictionary.ContainsKey(gameTag))  
-        //         _collisionDictionary.Add(gameTag, funcAction);
-        //     
-        //     else 
-        //         _collisionDictionary[gameTag] = funcAction;
-        //     
-        // }
-        //
-        // public void RemoveFromDictionary(string gameTag) {
-        //     if(_collisionDictionary.ContainsKey(gameTag)) 
-        //         _collisionDictionary.Remove(gameTag);
-        // }
+        
     }
 }

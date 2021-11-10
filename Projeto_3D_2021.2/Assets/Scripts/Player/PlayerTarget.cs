@@ -32,17 +32,19 @@ namespace Player{
 
         public void Awake() {
             SwipeEventManager.LeftSwipeEvent += MoveLeft;
-            SwipeEventManager.LeftSwipeEvent += MoveRight;
+            SwipeEventManager.RightSwipeEvent += MoveRight;
         }
 
 
         [ContextMenu("Mover Direita")]
         public void MoveRight() {
+            print("Direita");
             MoveTargetHorizontaly(1);
         }
         
         [ContextMenu("Mover Esquerda")]
         public void MoveLeft() {
+            print("Esquerda");
             MoveTargetHorizontaly(-1);
         }
         public void MoveTargetHorizontaly(int direction) { //direction must be equals to -1 or 1;

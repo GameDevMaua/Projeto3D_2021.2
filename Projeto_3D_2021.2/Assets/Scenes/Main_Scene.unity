@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 132316958}
   m_Layer: 0
-  m_Name: ------------Spawners--------------
+  m_Name: ------------Spawners---------------
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -200,7 +200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: 0.00999999, y: 1.232537, z: -11.116}
+  m_FollowOffset: {x: 5.8999996, y: 12.490001, z: -27.699999}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -317,7 +317,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 44
+  field of view: 60
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -342,8 +342,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 349595580}
-  m_LocalRotation: {x: 0.05518618, y: -0.00044909876, z: 0.000024821871, w: 0.998476}
-  m_LocalPosition: {x: 0.00999999, y: 5.352537, z: 17.484001}
+  m_LocalRotation: {x: 0.20251285, y: -0.047655873, z: 0.009867321, w: 0.9780696}
+  m_LocalPosition: {x: 5.8999996, y: 16.61, z: 0.9000015}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -395,8 +395,16 @@ PrefabInstance:
       value: BackSpawner (2)
       objectReference: {fileID: 0}
     - target: {fileID: 1944984712930345345, guid: 67a27403c0324d44b9dc02d4c8ce95fb, type: 3}
+      propertyPath: cooldown
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1944984712930345345, guid: 67a27403c0324d44b9dc02d4c8ce95fb, type: 3}
       propertyPath: arrivalRange
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1944984712930345345, guid: 67a27403c0324d44b9dc02d4c8ce95fb, type: 3}
+      propertyPath: steeringForce
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1944984712930345345, guid: 67a27403c0324d44b9dc02d4c8ce95fb, type: 3}
       propertyPath: followTransform
@@ -404,7 +412,7 @@ PrefabInstance:
       objectReference: {fileID: 607319392}
     - target: {fileID: 1944984712930345345, guid: 67a27403c0324d44b9dc02d4c8ce95fb, type: 3}
       propertyPath: maxDistanceBetweenCars
-      value: 3
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1944984712930345350, guid: 67a27403c0324d44b9dc02d4c8ce95fb, type: 3}
       propertyPath: m_RootOrder
@@ -571,7 +579,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4852813413854852728, guid: d510b4687d9343944a95f64b675efc96, type: 3}
       propertyPath: cooldown
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4852813413854852728, guid: d510b4687d9343944a95f64b675efc96, type: 3}
       propertyPath: followTransform
@@ -627,10 +635,10 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 607319392}
+  m_LookAt: {fileID: 0}
   m_Follow: {fileID: 607319392}
   m_Lens:
-    FieldOfView: 44
+    FieldOfView: 60
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
@@ -651,14 +659,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 874866663}
-  m_LocalRotation: {x: 0.05518618, y: -0.00044909876, z: 0.000024821871, w: 0.998476}
-  m_LocalPosition: {x: 0.00999999, y: 5.352537, z: 17.484001}
+  m_LocalRotation: {x: 0.20251285, y: -0.047655873, z: 0.009867321, w: 0.9780696}
+  m_LocalPosition: {x: 5.8999996, y: 16.61, z: 0.9000015}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 213737711}
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 23.396, y: -5.579, z: 0}
 --- !u!114 &874866666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -683,8 +691,16 @@ PrefabInstance:
       value: BackSpawner (1)
       objectReference: {fileID: 0}
     - target: {fileID: 1944984712930345345, guid: 67a27403c0324d44b9dc02d4c8ce95fb, type: 3}
+      propertyPath: cooldown
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1944984712930345345, guid: 67a27403c0324d44b9dc02d4c8ce95fb, type: 3}
       propertyPath: arrivalRange
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1944984712930345345, guid: 67a27403c0324d44b9dc02d4c8ce95fb, type: 3}
+      propertyPath: steeringForce
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1944984712930345345, guid: 67a27403c0324d44b9dc02d4c8ce95fb, type: 3}
       propertyPath: followTransform
@@ -692,7 +708,7 @@ PrefabInstance:
       objectReference: {fileID: 607319392}
     - target: {fileID: 1944984712930345345, guid: 67a27403c0324d44b9dc02d4c8ce95fb, type: 3}
       propertyPath: maxDistanceBetweenCars
-      value: 3
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1944984712930345350, guid: 67a27403c0324d44b9dc02d4c8ce95fb, type: 3}
       propertyPath: m_RootOrder
@@ -908,6 +924,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 010ecac9c3eb99a40bba26440c535d42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mainCamera: {fileID: 349595582}
 --- !u!114 &1591290793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -920,8 +937,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0f1aa9cbdd204a4db1e56e7a9b75800, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minimumDistance: 0.2
-  maximumTime: 1
+  minimumDistance: 0.05
+  maximumTime: 8
   directionThreshold: 0.28
 --- !u!4 &1591290794
 Transform:
@@ -1050,7 +1067,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4852813413854852728, guid: d510b4687d9343944a95f64b675efc96, type: 3}
       propertyPath: cooldown
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4852813413854852728, guid: d510b4687d9343944a95f64b675efc96, type: 3}
       propertyPath: followTransform
@@ -1112,9 +1129,21 @@ PrefabInstance:
       value: BackSpawner
       objectReference: {fileID: 0}
     - target: {fileID: 1944984712930345345, guid: 67a27403c0324d44b9dc02d4c8ce95fb, type: 3}
+      propertyPath: cooldown
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1944984712930345345, guid: 67a27403c0324d44b9dc02d4c8ce95fb, type: 3}
+      propertyPath: steeringForce
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1944984712930345345, guid: 67a27403c0324d44b9dc02d4c8ce95fb, type: 3}
       propertyPath: followTransform
       value: 
       objectReference: {fileID: 607319392}
+    - target: {fileID: 1944984712930345345, guid: 67a27403c0324d44b9dc02d4c8ce95fb, type: 3}
+      propertyPath: maxDistanceBetweenCars
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1944984712930345350, guid: 67a27403c0324d44b9dc02d4c8ce95fb, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -1214,7 +1243,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4852813413854852728, guid: d510b4687d9343944a95f64b675efc96, type: 3}
       propertyPath: cooldown
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4852813413854852728, guid: d510b4687d9343944a95f64b675efc96, type: 3}
       propertyPath: followTransform

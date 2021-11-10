@@ -1,4 +1,3 @@
-
 using Input_Swipe;
 using Player;
 using UnityEngine;
@@ -21,50 +20,43 @@ public class SwipeDetection : MonoBehaviour
         _inputManager = InputManager.Instance;
     }
 
-    private void OnEnable()
-    {
+    private void OnEnable(){
         _inputManager.OnStartTouch += SwipeStart;
         _inputManager.OnEndTouch += SwipeEnd;
     }
 
-    private void OnDisable()
-    {
+    private void OnDisable(){
         _inputManager.OnStartTouch -= SwipeStart;
         _inputManager.OnEndTouch -= SwipeEnd;
     }
 
-    private void SwipeStart(Vector2 position, float time)
-    {
+    private void SwipeStart(Vector2 position, float time){
         _startPosition = position;
         _startTime = time;
     }
  
-    private void SwipeEnd(Vector2 position, float time)
-    {
+    private void SwipeEnd(Vector2 position, float time){
         _endPosition = position;
         _endTime = time;
         DetectSwipe();
     }
 
-    private void DetectSwipe()
-    {
+    private void DetectSwipe(){
         if (!PlayerManager.CanPlayerMove())
             return;
         
         DoDebug();
         var dir = _endPosition - _startPosition;
         var deltaTime = _endTime - _startTime;
-        if (dir.magnitude >= minimumDistance &&  deltaTime <= maximumTime)
-        {
+        if (dir.magnitude >= minimumDistance &&  deltaTime <= maximumTime){
             SwipeDirection(dir.normalized);
         }
     }
 
-    private void DoDebug()
-    {
+    private void DoDebug(){
         var dir = _endPosition - _startPosition;
         
-        Debug.Log("Swipe Detected");
+        // Debug.Log("Swipe Detected");
         if (dir.magnitude >= minimumDistance && _endTime - _startTime <= maximumTime)
         {
             Debug.DrawLine(_startPosition, _endPosition, Color.green, 5f);
@@ -81,24 +73,24 @@ public class SwipeDetection : MonoBehaviour
     {
         if (Vector2.Dot(Vector2.up, direction) > directionThreshold)
         {
-            Debug.Log("Swipe Up");
+            // Debug.Log("Swipe Up");
             SwipeEventManager.UpSwipeInvoke();
             
         }
         else if (Vector2.Dot(Vector2.down, direction) > directionThreshold)
         {
-            Debug.Log("Swipe Down");
+            // Debug.Log("Swipe Down");
             SwipeEventManager.DownSwipeInvoke();
         }
         else if (Vector2.Dot(Vector2.left, direction) > directionThreshold)
         {
-            Debug.Log("Swipe Left");
+            // Debug.Log("Swipe Left");
             SwipeEventManager.LeftSwipeInvoke();
         }
         else if (Vector2.Dot(Vector2.right, direction) > directionThreshold)
         {
-            Debug.Log("Swipe Right");
+            // Debug.Log("Swipe Right");
             SwipeEventManager.RightSwipeInvoke();
         }
     }
-}    
+}

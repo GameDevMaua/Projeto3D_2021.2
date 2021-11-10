@@ -1,6 +1,4 @@
-﻿using System;
-using UnityEditor;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Vehicle_Manager
 {
@@ -51,9 +49,9 @@ namespace Vehicle_Manager
         private bool CooldownIsOver() => lastSpawnTime + cooldown<Time.time;
 
         private void OnDrawGizmos() {
-            Color kappa = Color.red;
-            kappa.a = 0.3f;
-            Gizmos.color = kappa;
+            Color gizmosColor = Color.red;
+            gizmosColor.a = 0.3f;
+            Gizmos.color = gizmosColor;
             
             Gizmos.DrawCube(transform.position,Vector3.one * 1.3f);
         }
