@@ -10,6 +10,7 @@ namespace New_City_Generation{ //este é o script que vai no player
         [SerializeField] private ScriptableTile _firstLeftTile;
         [SerializeField] private ScriptableTile _firstMiddleTile;
         [SerializeField] private ScriptableTile _firstRightTile;
+        [SerializeField] private int _kappa;
 
         private List<TileGroup> _tileGroupList = new List<TileGroup>();
         private int _currentPlayerGridPosition;
@@ -67,7 +68,7 @@ namespace New_City_Generation{ //este é o script que vai no player
 
         private void InitializeTileGroups() {
            
-            var firstGroupGeneration = TileGroupFactory.CreateTileGroupsArray(_groupListSize, _worldPlayerPosition, 50, _firstLeftTile, _firstMiddleTile, _firstRightTile);
+            var firstGroupGeneration = TileGroupFactory.CreateTileGroupsArray(_groupListSize, _worldPlayerPosition, _kappa, _firstLeftTile, _firstMiddleTile, _firstRightTile);
 
             foreach (var tileGroup in firstGroupGeneration) {
                 _tileGroupList.Add(tileGroup);

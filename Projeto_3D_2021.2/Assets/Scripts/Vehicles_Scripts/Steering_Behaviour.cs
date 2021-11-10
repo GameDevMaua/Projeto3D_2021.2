@@ -94,7 +94,7 @@ public class Steering_Behaviour : MonoBehaviour{
   }
 
   private void FixedUpdate() {
-    var carAhead = IsThereAObjectAhead(_layersToCheck, Vector3.forward, _maxDistanceBetweenCars * 3);
+    var carAhead = IsThereAObjectAhead(_layersToCheck, Vector3.forward, _arrivalBehaviourRange * 3);
     
     if (carAhead.collider)
       SeekAndArriveBehaviour(carAhead.point);

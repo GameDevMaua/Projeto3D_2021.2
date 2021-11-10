@@ -16,7 +16,10 @@ namespace New_City_Generation{
         public Tile LeftTile => _leftTile;
         public Tile RightTile => _rightTile;
         public Tile[] TilesArray => new[] {_leftTile, _middleTile, _rightTile};
-        public int TileSize => _aroundTilesOffset;
+        public int TileSize {
+            get => _aroundTilesOffset;
+            set => _aroundTilesOffset = value;
+        }
         
         public TileGroup(Vector3 middleTilePosition, TileGroup previousGroup, int aroundTilesOffset) {
             _middleTilePosition = middleTilePosition;
