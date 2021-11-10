@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextPossibles:
   - {fileID: 11400000, guid: 40d7863af89238445aedccefc4d06dd7, type: 2}
-  buildingPrefab: {fileID: 3296509938070743597, guid: a17a85bc5b00da4429a04c694eb75e9d, type: 3}
+  buildingPrefab: {fileID: 919132149155446097, guid: 436daaceea5c0db4998041427c49cba6, type: 3}

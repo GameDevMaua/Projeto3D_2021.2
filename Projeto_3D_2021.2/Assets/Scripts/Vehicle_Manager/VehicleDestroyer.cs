@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 namespace Vehicle_Manager
 {
     public class VehicleDestroyer : MonoBehaviour
@@ -12,5 +13,12 @@ namespace Vehicle_Manager
                 VehicleManager.Instance.DestroyVehicle(gameObj);
             }
         }
+        
+        private void OnDrawGizmos() {
+            BoxCollider boxCollider = GetComponent<BoxCollider>();
+            Vector3 colliderPosition = boxCollider.transform.position;
+            Gizmos.DrawWireCube(colliderPosition, boxCollider.size);
+        }
+        
     }
 }

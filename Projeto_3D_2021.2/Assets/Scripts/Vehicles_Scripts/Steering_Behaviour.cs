@@ -25,6 +25,11 @@ public class Steering_Behaviour : MonoBehaviour{
     set => _maxDistanceBetweenCars = value;
   }
   
+  public float SteeringMaxMagnitude {
+    get => _steeringMaxMagnitude;
+    set => _steeringMaxMagnitude = value;
+  }
+  
   private void Start() {
     _rgb = GetComponent<Rigidbody>();
   }

@@ -9,14 +9,13 @@ namespace Vehicle_Manager
             var oldPosition = currentTransform.position;
             var cameraPosition = followTransform.position;
 
-            var zOffset = cameraPosition.z + offset;
-        
-            var newPosition = new Vector3(oldPosition.x,oldPosition.y, zOffset);
+
+            var newPosition = new Vector3(oldPosition.x,oldPosition.y, cameraPosition.z + zOffset);
 
             spawnerPosition = newPosition;
             currentTransform.position = newPosition;
+            
+            
         }
-        
-        
     }
 }

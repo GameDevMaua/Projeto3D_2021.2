@@ -9,13 +9,19 @@ namespace Vehicle_Manager
         [HideInInspector] public Vector3 spawnerPosition;
         
         [SerializeField] private float cooldown;
+
+        [SerializeField] protected LayerMask _layerMask;
+
+        [SerializeField] protected float _safeZone;
         protected float lastSpawnTime;
-        [SerializeField] protected float offset;
+        
+        protected float zOffset;
         
         
         [SerializeField] protected float carVelocity;
         [SerializeField] protected float arrivalRange;
         [SerializeField] protected float maxDistanceBetweenCars;
+        [SerializeField] protected float steeringForce;
 
         public Transform followTransform;
         protected Transform currentTransform;
@@ -23,31 +29,33 @@ namespace Vehicle_Manager
         protected virtual void Start()
         {
             currentTransform = GetComponent<Transform>();
-
-            transform.position = followTransform.position + Vector3.down * 3; //esse 3 é um valor arbitrário. É só pra fazer com o que o spawner fique um pouco abaixo do player
             
+            zOffset = transform.position.z - followTransform.position.z;
+
         }
 
         protected virtual void SpawnNewVehicle() {
             lastSpawnTime = Time.time;
-            VehicleManager.Instance.CreateNewVehicle(this, carVelocity, arrivalRange, maxDistanceBetweenCars);
+            VehicleManager.Instance.CreateNewVehicle(this, carVelocity, arrivalRange, maxDistanceBetweenCars, steeringForce);
         }
         protected abstract void CalculateNewPosition();
         private void Update()
         {
             CalculateNewPosition();
-            if (CooldownIsOver())
-            {
-                SpawnNewVehicle();
+            if (CooldownIsOver()) {
+                Physics.Raycast(transform.position - Vector3.forward * _safeZone, Vector3.forward, out var spawnerIsNotOnACar, _safeZone * 2, _layerMask);
+                if(!spawnerIsNotOnACar.collider)
+                    SpawnNewVehicle();
             }
         }
         private bool CooldownIsOver() => lastSpawnTime + cooldown<Time.time;
 
-
         private void OnDrawGizmos() {
-            BoxCollider boxCollider = GetComponent<BoxCollider>();
-            Vector3 colliderPosition = boxCollider.center + boxCollider.transform.position;
-                Gizmos.DrawWireCube(colliderPosition, Vector3.one);
+            Color kappa = Color.red;
+            kappa.a = 0.3f;
+            Gizmos.color = kappa;
+            
+            Gizmos.DrawCube(transform.position,Vector3.one * 1.3f);
         }
     }
 }
