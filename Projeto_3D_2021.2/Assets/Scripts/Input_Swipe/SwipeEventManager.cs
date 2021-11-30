@@ -1,4 +1,6 @@
 ﻿
+using UnityEngine;
+
 namespace Input_Swipe
 {
     public static class SwipeEventManager //: Singleton<SwipeManager>

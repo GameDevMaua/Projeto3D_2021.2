@@ -1,4 +1,3 @@
-
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,7 +9,7 @@ public class InputManager : Singleton<InputManager>
     public delegate void StartTouch(Vector2 position, float time);
     public event StartTouch OnStartTouch;
     public delegate void EndTouch(Vector2 position, float time);
-    public event StartTouch OnEndTouch;
+    public event EndTouch OnEndTouch;
     #endregion
         
     private PlayerControls _playerControls;
@@ -38,14 +37,12 @@ public class InputManager : Singleton<InputManager>
         _playerControls.Touch.PrimaryContact.canceled += ctx => EndTouchPrimary(ctx);
     }
 
-    private void StartTouchPrimary(InputAction.CallbackContext context)
-    {
-        if (OnStartTouch != null) OnStartTouch(Utils.ScreenToWorld(_mainCamera, _playerControls.Touch.PrimaryPosition.ReadValue<Vector2>()), (float)context.startTime);
+    private void StartTouchPrimary(InputAction.CallbackContext context) {
+        if (OnStartTouch != null) OnStartTouch(_playerControls.Touch.PrimaryPosition.ReadValue<Vector2>(), (float)context.startTime);
     }
     
-    private void EndTouchPrimary(InputAction.CallbackContext context)
-    {
-        if (OnEndTouch != null) OnEndTouch(Utils.ScreenToWorld(_mainCamera, _playerControls.Touch.PrimaryPosition.ReadValue<Vector2>()), (float)context.time);
+    private void EndTouchPrimary(InputAction.CallbackContext context) {
+        if (OnEndTouch != null) OnEndTouch(_playerControls.Touch.PrimaryPosition.ReadValue<Vector2>(), (float)context.time);
     }
 
     public Vector2 PrimaryPosition()

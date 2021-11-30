@@ -14,7 +14,6 @@ namespace Vehicle_Manager{
            _collisionDictionary = new Dictionary<string, Action<GameObject>> {
                {"Car", (GameObject otherCar) => {
                    OnCarCrashEvent?.Invoke(otherCar);
-                   
                    OnCarCrashed(otherCar);
                } }
                
@@ -23,17 +22,13 @@ namespace Vehicle_Manager{
 
         private void OnCollisionEnter(Collision other) {
             string gameTag = other.gameObject.tag;
-            
             if (_collisionDictionary.ContainsKey(gameTag)) 
                 _collisionDictionary[gameTag]?.Invoke(other.gameObject);
-
-            else 
-                print("Essa colisao nao esta no dicionario");
-                
+            
         }
 
         private void OnCarCrashed(GameObject otherCar) {
-            Destroy(this);
+           Destroy(otherCar);
         }
         
     }

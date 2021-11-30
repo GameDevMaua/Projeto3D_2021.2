@@ -30,27 +30,24 @@ namespace Player{
 
         }
 
-        public void Awake() {
-            SwipeEventManager.LeftSwipeEvent += MoveLeft;
-            SwipeEventManager.RightSwipeEvent += MoveRight;
-        }
+        // public void Awake() {
+        //     SwipeEventManager.LeftSwipeEvent += MoveLeft;
+        //     SwipeEventManager.RightSwipeEvent += MoveRight;
+        // }
 
 
         [ContextMenu("Mover Direita")]
         public void MoveRight() {
-            print("Direita");
             MoveTargetHorizontaly(1);
         }
         
         [ContextMenu("Mover Esquerda")]
         public void MoveLeft() {
-            print("Esquerda");
             MoveTargetHorizontaly(-1);
         }
         public void MoveTargetHorizontaly(int direction) { //direction must be equals to -1 or 1;
             var canMove = ((CurrentArrayPosition + direction) >= 0 && (CurrentArrayPosition + direction) <= 2);
             if(canMove) {
-                print("Andei");
                 var newPosition = new Vector3(_horizontalPositionsArray[CurrentArrayPosition + direction],
                     transform.position.y, transform.position.z);
                 transform.position = newPosition;

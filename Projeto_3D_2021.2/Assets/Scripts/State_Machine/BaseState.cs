@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using Input_Swipe;
 using Player;
 using UnityEngine;
@@ -9,7 +8,7 @@ namespace State_Machine{
     public class BaseState{
         protected StateManager _stateManager;
         private Animator _animator;
-        [SerializeField] private string _animateName;
+        public string _animateName;
         
         public BaseState(StateManager stateManager) {
             _stateManager = stateManager;
@@ -22,7 +21,7 @@ namespace State_Machine{
             SwipeEventManager.LeftSwipeEvent += OnSwipeLeft;
             SwipeEventManager.RightSwipeEvent += OnSwipeRight;
             
-            _animator.Play(_animateName);
+            // _animator.Play(_animateName);
             
         }
 
@@ -38,7 +37,7 @@ namespace State_Machine{
         }
 
         public virtual void OnSwipeUp() {
-            
+            Debug.Log("Arrasta pra cima e ganhe promoção");
         }
 
         public virtual void OnSwipeDown() {
@@ -46,6 +45,7 @@ namespace State_Machine{
         }
 
         public virtual void OnSwipeLeft() {
+            Debug.Log("Da um print ai pra ver se chama a função");
             PlayerTarget.Instance.MoveTargetHorizontaly(-1);
         }
 

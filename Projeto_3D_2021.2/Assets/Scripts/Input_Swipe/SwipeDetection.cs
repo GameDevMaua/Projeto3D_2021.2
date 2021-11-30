@@ -45,8 +45,11 @@ public class SwipeDetection : MonoBehaviour
         if (!PlayerManager.CanPlayerMove())
             return;
         
-        DoDebug();
+        // DoDebug();
+        // print("StartPosition " + _startPosition);
+        // print("EndPosition " + _endPosition);
         var dir = _endPosition - _startPosition;
+        // print("Magnitude " + dir.magnitude);
         var deltaTime = _endTime - _startTime;
         if (dir.magnitude >= minimumDistance &&  deltaTime <= maximumTime){
             SwipeDirection(dir.normalized);
@@ -75,7 +78,6 @@ public class SwipeDetection : MonoBehaviour
         {
             // Debug.Log("Swipe Up");
             SwipeEventManager.UpSwipeInvoke();
-            
         }
         else if (Vector2.Dot(Vector2.down, direction) > directionThreshold)
         {

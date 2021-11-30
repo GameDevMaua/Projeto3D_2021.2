@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bac841afe3f43e0ab61bfa1552abba3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fowardVelocity: 5
+  _fowardVelocity: 15
   _positionsOffset: 10
 --- !u!1 &1265978559384394865
 GameObject:
@@ -60,6 +60,8 @@ GameObject:
   - component: {fileID: 1265978559384394866}
   - component: {fileID: 1265978559384394867}
   - component: {fileID: 1265978559384394864}
+  - component: {fileID: 414358205}
+  - component: {fileID: 6575956157330644890}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -183,3 +185,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17304db5ce08f96419b46e19e467a7cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &414358205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1265978559384394865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 245653baa95147b6bc1c3b99c35086e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentState:
+    _animateName: 
+  fallingState:
+    _animateName: 
+  flyingState:
+    _animateName: 
+  drivingState:
+    _animateName: 
+--- !u!54 &6575956157330644890
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1265978559384394865}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0

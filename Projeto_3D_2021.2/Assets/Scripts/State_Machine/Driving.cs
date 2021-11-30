@@ -1,9 +1,10 @@
 ﻿
-using Player;
+using System;
 using UnityEngine;
 using Vehicle_Manager;
 
 namespace State_Machine{
+    [Serializable]
     public class Driving : BaseState{
 
         public GameObject Car { get; set; }
@@ -30,6 +31,7 @@ namespace State_Machine{
         }
 
         public override void OnSwipeUp() {
+            Debug.Log("SwipeUp na classe Driving");
             //todo:Verificar se alterar para o estado caindo é a melhor opção
             _stateManager.ChangeCurrentState(_stateManager.fallingState);
         }

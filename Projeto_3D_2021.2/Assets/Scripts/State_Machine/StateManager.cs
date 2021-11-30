@@ -2,7 +2,7 @@
 
 namespace State_Machine{
     public class StateManager : MonoBehaviour{
-        public BaseState _currentState { get; set; }
+        public BaseState _currentState;
         
         public Falling fallingState;
         public Flying flyingState;
@@ -13,8 +13,13 @@ namespace State_Machine{
             fallingState = new Falling(this);
             flyingState = new Flying(this);
             drivingState = new Driving(this);
+
+            fallingState._animateName = "Falling";
+            flyingState._animateName  = "Flying";
+            drivingState._animateName = "Driving";
+            ChangeCurrentState(fallingState);
             
-            _currentState = fallingState;
+            
             
         }
 

@@ -1,19 +1,16 @@
 ﻿using System;
 using Player;
 using UnityEngine;
-using UnityEngine.InputSystem.Interactions;
 using Vehicle_Manager;
 
 namespace State_Machine{
     [Serializable]
     public class Falling: BaseState{
         
-        
-        
         public Falling(StateManager stateManager) : base(stateManager){
         }
         public override void OnExecuteState() {
-            
+            Debug.Log("Caindo");
         }
 
         public override void OnStateEnter() {
@@ -33,7 +30,6 @@ namespace State_Machine{
         }
         
         public override void OnSwipeUp() {
-            Debug.Log("Deslizei pra cima");
             if(HaveEnoughFuel())
                 _stateManager.ChangeCurrentState(_stateManager.flyingState);
             else {

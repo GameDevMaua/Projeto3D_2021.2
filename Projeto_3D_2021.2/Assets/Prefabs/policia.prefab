@@ -342,9 +342,10 @@ GameObject:
   - component: {fileID: 2816494526429927600}
   - component: {fileID: 2816494526429927607}
   - component: {fileID: 2816494526429927606}
+  - component: {fileID: 3521306129280558366}
   m_Layer: 6
   m_Name: policia
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -418,13 +419,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3773f6638c4fccb42aef996832e7b73d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minDistanceBetweenCars: 3
-  _arrivalRange: 10
+  _maxDistanceBetweenCars: 0
+  _arrivalBehaviourRange: 0
   _maxVelocity: 5
   _steeringMaxMagnitude: 4
   _layersToCheck:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &3521306129280558366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2816494526429927605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f480ebb1d6c840b19362ab1432dee99c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4219828313274349224
 GameObject:
   m_ObjectHideFlags: 0
