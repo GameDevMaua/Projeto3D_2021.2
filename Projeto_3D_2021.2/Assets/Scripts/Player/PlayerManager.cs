@@ -4,7 +4,6 @@ using UnityEngine;
 namespace Player
 {
     public class PlayerManager : Singleton<PlayerManager>{
-        public GameObject character;
         
         private static bool _isPlayerMoving = true;
         private static void StartPlayerMove() => _isPlayerMoving = true;

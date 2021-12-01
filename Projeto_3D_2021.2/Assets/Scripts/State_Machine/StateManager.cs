@@ -14,17 +14,20 @@ namespace State_Machine{
             flyingState = new Flying(this);
             drivingState = new Driving(this);
 
+            
+            _currentState = fallingState;
+
+
             fallingState._animateName = "Falling";
             flyingState._animateName  = "Flying";
             drivingState._animateName = "Driving";
             ChangeCurrentState(fallingState);
-            
-            
-            
+
+
+
         }
 
         public void ChangeCurrentState(BaseState newState) {
-            if(_currentState == newState) return;
             
             _currentState.OnStateLeaving();
             

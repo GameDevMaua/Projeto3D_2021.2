@@ -1,5 +1,4 @@
 ﻿
-using UnityEngine;
 
 namespace Input_Swipe
 {

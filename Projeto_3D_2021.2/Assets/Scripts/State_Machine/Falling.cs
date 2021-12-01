@@ -10,6 +10,7 @@ namespace State_Machine{
         public Falling(StateManager stateManager) : base(stateManager){
         }
         public override void OnExecuteState() {
+
             Debug.Log("Caindo");
         }
 
@@ -26,7 +27,7 @@ namespace State_Machine{
 
 
         public bool HaveEnoughFuel() {
-            return true;
+            return PlayerSingleton.Instance.JetpackFuel > 0; //esse zero é arbitrário
         }
         
         public override void OnSwipeUp() {
@@ -38,11 +39,6 @@ namespace State_Machine{
             }
             
         }
-
-        public override void OnSwipeDown() {
-            _stateManager.ChangeCurrentState(_stateManager.drivingState);
-        }
-
         public void OnCarCollide(GameObject car) {
             _stateManager.drivingState.Car = car;
             _stateManager.drivingState.CarCollision = car.AddComponent<CarCollisions>();

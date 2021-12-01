@@ -2,6 +2,7 @@
 using Input_Swipe;
 using Player;
 using UnityEngine;
+using UnityEngine.InputSystem.Interactions;
 
 namespace State_Machine{
     [Serializable]
@@ -13,16 +14,20 @@ namespace State_Machine{
         public BaseState(StateManager stateManager) {
             _stateManager = stateManager;
         }
-        
+
+        public void a() {
+            Debug.Log("Kaaaaaa");
+        }
         
         public virtual void OnStateEnter() {
             SwipeEventManager.UpSwipeEvent += OnSwipeUp;
             SwipeEventManager.DownSwipeEvent += OnSwipeDown;
             SwipeEventManager.LeftSwipeEvent += OnSwipeLeft;
             SwipeEventManager.RightSwipeEvent += OnSwipeRight;
-            
+
+
             // _animator.Play(_animateName);
-            
+
         }
 
         public virtual void OnExecuteState() {
@@ -37,7 +42,9 @@ namespace State_Machine{
         }
 
         public virtual void OnSwipeUp() {
+
             Debug.Log("Arrasta pra cima e ganhe promoção");
+
         }
 
         public virtual void OnSwipeDown() {
