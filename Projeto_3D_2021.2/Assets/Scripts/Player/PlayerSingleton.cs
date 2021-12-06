@@ -28,7 +28,7 @@ namespace Player{
             JetpackFuel = _maximumFuelInSeconds;
         }
 
-        private void Update() {
+        private void FixedUpdate() {
             var targetPosition = _target.transform.position;
             transform.position = Vector3.Lerp(transform.position, targetPosition, _lerpSpeed);
         }

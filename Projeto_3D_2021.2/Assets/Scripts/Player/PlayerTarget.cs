@@ -1,4 +1,5 @@
-﻿using Input_Swipe;
+﻿using System;
+using Input_Swipe;
 using UnityEngine;
 
 namespace Player{
@@ -33,17 +34,17 @@ namespace Player{
             
         }
 
+        private void OnDrawGizmos() {
+            Gizmos.DrawWireCube(transform.position, Vector3.one);
+        }
+
         private void FixedUpdate() {
             var rgbVelocity = _rgb.velocity;
-            
-            var xVelSquared = Mathf.Pow(rgbVelocity.x, 2);
-            var yVelSquared = Mathf.Pow(_maximumVerticalVel, 2);
-            var zVelSquared = Mathf.Pow(rgbVelocity.z, 2);
 
-            _maximumVelocity = Mathf.Sqrt(xVelSquared + yVelSquared + zVelSquared);
+            var k = rgbVelocity.y;
             
-            _rgb.velocity = Vector3.ClampMagnitude(_rgb.velocity, _maximumVelocity);
 
+            _rgb.velocity = new Vector3(rgbVelocity.x, LimitValue(k, -_maximumVerticalVel, _maximumVerticalVel), rgbVelocity.z);
         }
 
         // public void Awake() {
@@ -51,6 +52,11 @@ namespace Player{
         //     SwipeEventManager.RightSwipeEvent += MoveRight;
         // }
 
+        private float LimitValue(float value, float min, float max) {
+            if (value <= min) return min;
+            
+            return value >= max ? max : value;
+        }
 
         [ContextMenu("Mover Direita")]
         public void MoveRight() {

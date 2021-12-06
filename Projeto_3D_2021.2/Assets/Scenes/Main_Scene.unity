@@ -1305,6 +1305,10 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 112
       objectReference: {fileID: 0}
+    - target: {fileID: 2093213380231880051, guid: a2bee616a8d705d48adffcbb70a22e05, type: 3}
+      propertyPath: _fowardVelocity
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 3236707215650822208, guid: a2bee616a8d705d48adffcbb70a22e05, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -1312,6 +1316,10 @@ PrefabInstance:
     - target: {fileID: 8366714222017210688, guid: a2bee616a8d705d48adffcbb70a22e05, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8366714222017210717, guid: a2bee616a8d705d48adffcbb70a22e05, type: 3}
+      propertyPath: _lerpSpeed
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 8366714222017210717, guid: a2bee616a8d705d48adffcbb70a22e05, type: 3}
       propertyPath: _maximumFuelInSeconds
