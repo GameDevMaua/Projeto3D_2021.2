@@ -7,14 +7,15 @@ namespace Player{
     public class PlayerTarget : Singleton<PlayerTarget>{
         [SerializeField] private float _fowardVelocity;
         [SerializeField] private float _positionsOffset;
+        [SerializeField] private float _maximumVerticalVel;
 
 
+        
         private Vector3 _velocity;
         private float[] _horizontalPositionsArray;
 
         private Rigidbody _rgb;
 
-        [SerializeField] private float _maximumVerticalVel;
 
         private float _maximumVelocity;
         public int CurrentArrayPosition { get; set; } = 1;

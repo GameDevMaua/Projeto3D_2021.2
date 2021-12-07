@@ -12,13 +12,13 @@ namespace State_Machine{
         private PlayerSingleton _player;
         private PlayerTarget _playerTarget;
 
+        [SerializeField] private float _maximumHeight;
+
         private Rigidbody _rgb;
         
         public override void OnExecuteState() {
 
-            var HaveEnoughFuel = _player.JetpackFuel > 0;
-
-            if(!HaveEnoughFuel) 
+            if(!PlayerSingleton.Instance.CanFly) 
                 _stateManager.ChangeCurrentState(_stateManager.fallingState);
             
            
