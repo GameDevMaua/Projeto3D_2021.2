@@ -6,9 +6,9 @@ namespace Player{
 
         [SerializeField] private float _lerpSpeed;
         [SerializeField] private float _maximumFuelInSeconds;
-
         [SerializeField] private float _maximumHeight;
 
+        
         public bool CanFly { get; set; }
         //todo: Tirar esse serialized field
         [SerializeField]

@@ -12,8 +12,6 @@ namespace State_Machine{
         private PlayerSingleton _player;
         private PlayerTarget _playerTarget;
 
-        [SerializeField] private float _maximumHeight;
-
         private Rigidbody _rgb;
         
         public override void OnExecuteState() {

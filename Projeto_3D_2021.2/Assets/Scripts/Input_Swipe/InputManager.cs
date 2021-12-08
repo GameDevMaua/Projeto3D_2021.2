@@ -10,6 +10,7 @@ public class InputManager : Singleton<InputManager>
     public event StartTouch OnStartTouch;
     public delegate void EndTouch(Vector2 position, float time);
     public event EndTouch OnEndTouch;
+    
     #endregion
         
     private PlayerControls _playerControls;
@@ -44,6 +45,9 @@ public class InputManager : Singleton<InputManager>
     private void EndTouchPrimary(InputAction.CallbackContext context) {
         if (OnEndTouch != null) OnEndTouch(_playerControls.Touch.PrimaryPosition.ReadValue<Vector2>(), (float)context.time);
     }
-    
+
+    // private void Tap(InputAction.CallbackContext context) {
+    //     if(OnTap != null) 
+    // }
 
  }

@@ -42,8 +42,6 @@ namespace State_Machine{
 
         public virtual void OnSwipeUp() {
 
-            Debug.Log("Arrasta pra cima e ganhe promoção");
-
         }
 
         public virtual void OnSwipeDown() {
@@ -51,7 +49,6 @@ namespace State_Machine{
         }
 
         public virtual void OnSwipeLeft() {
-            Debug.Log("Da um print ai pra ver se chama a função");
             PlayerTarget.Instance.MoveTargetHorizontaly(-1);
         }
 
