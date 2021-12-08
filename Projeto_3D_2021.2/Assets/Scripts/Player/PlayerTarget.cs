@@ -8,7 +8,8 @@ namespace Player{
         [SerializeField] private float _fowardVelocity;
         [SerializeField] private float _positionsOffset;
         [SerializeField] private float _maximumVerticalVel;
-
+        
+        [SerializeField] private float _deltaMovementSpeed;
 
         
         private Vector3 _velocity;
@@ -76,6 +77,11 @@ namespace Player{
                 transform.position = newPosition;
                 CurrentArrayPosition += direction;
             }
+        }
+
+        public void MovePlayerByDeltaX(float deltaX, float deltaTime)
+        {
+            transform.position += Vector3.right * (deltaX * deltaTime * _deltaMovementSpeed);
         }
     }
 }

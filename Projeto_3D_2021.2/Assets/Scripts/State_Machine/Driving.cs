@@ -1,5 +1,6 @@
 ﻿
 using System;
+using Player;
 using UnityEngine;
 using Vehicle_Manager;
 
@@ -15,8 +16,11 @@ namespace State_Machine{
             
         }
         
-        public override void OnExecuteState() {
-            
+        public override void OnExecuteState()
+        {
+            Debug.LogWarning("criar uma action para quando estiver segurando na tela e conectar a função q vai atualizar a variavel InputManager.Instance.touchPosition");
+            var touchPositionInfo = InputManager.Instance.touchPosition;
+            PlayerTarget.Instance.MovePlayerByDeltaX(touchPositionInfo.deltaTouchPosition.x,touchPositionInfo.deltaTimeTouchPosition);
         }
 
         public override void OnStateEnter() {
