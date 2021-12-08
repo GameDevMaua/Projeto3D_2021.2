@@ -6,7 +6,7 @@ namespace Player{
 
         [SerializeField] private float _lerpSpeed;
         [SerializeField] private float _maximumFuelInSeconds;
-        [SerializeField] private float _maximumHeight;
+        
 
         
         public bool CanFly { get; set; }
@@ -16,16 +16,11 @@ namespace Player{
 
         public float JetpackFuel {
             get => _jetpackFuel;
-
-            set {
-                if (value <= 0) _jetpackFuel = 0f;
-                else if (value >= _maximumFuelInSeconds) _jetpackFuel = _maximumFuelInSeconds;
-                else _jetpackFuel = value;
-            }
+            set => _jetpackFuel = Mathf.Clamp(value, 0, _maximumFuelInSeconds);
         }
 
         private void CheckIfCanFly() {
-            if (JetpackFuel > 0 && transform.position.y <= _maximumHeight) {
+            if (JetpackFuel > 0 ) {
                 CanFly = true;
             }
             else {
@@ -43,6 +38,9 @@ namespace Player{
             transform.position = Vector3.Lerp(transform.position, targetPosition, _lerpSpeed);
             
             CheckIfCanFly();
+            
+            
+            
         }
     }
 }

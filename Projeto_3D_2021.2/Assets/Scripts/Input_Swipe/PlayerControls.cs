@@ -70,7 +70,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""956a0dcb-af6b-49a9-9954-a2c1b3685eb9"",
                     ""path"": ""<Touchscreen>/touch0/press"",
-                    ""interactions"": ""Hold"",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Jetpack"",

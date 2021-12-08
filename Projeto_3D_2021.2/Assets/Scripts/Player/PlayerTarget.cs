@@ -41,24 +41,21 @@ namespace Player{
         }
 
         private void FixedUpdate() {
-            var rgbVelocity = _rgb.velocity;
+            // var rgbVelocity = _rgb.velocity;
 
-            var k = rgbVelocity.y;
+            // var velocityY = rgbVelocity.y;
+            // _rgb.velocity = new Vector3(rgbVelocity.x, LimitValue(velocityY, -_maximumVerticalVel, _maximumVerticalVel), rgbVelocity.z);
             
-
-            _rgb.velocity = new Vector3(rgbVelocity.x, LimitValue(k, -_maximumVerticalVel, _maximumVerticalVel), rgbVelocity.z);
+            
+            
         }
-
-        // public void Awake() {
-        //     SwipeEventManager.LeftSwipeEvent += MoveLeft;
-        //     SwipeEventManager.RightSwipeEvent += MoveRight;
+        
+        //
+        // private float LimitValue(float value, float min, float max) {
+        //     if (value <= min) return min;
+        //     
+        //     return value >= max ? max : value;
         // }
-
-        private float LimitValue(float value, float min, float max) {
-            if (value <= min) return min;
-            
-            return value >= max ? max : value;
-        }
 
         [ContextMenu("Mover Direita")]
         public void MoveRight() {

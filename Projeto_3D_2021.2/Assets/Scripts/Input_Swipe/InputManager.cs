@@ -37,6 +37,9 @@ public class InputManager : Singleton<InputManager>
     {
         _playerControls.Touch.PrimaryContact.started += ctx => StartTouchPrimary(ctx);
         _playerControls.Touch.PrimaryContact.canceled += ctx => EndTouchPrimary(ctx);
+
+        _playerControls.Touch.Jetpack.performed += ctx => EndTouchPrimary(ctx);
+        
     }
 
     public struct TouchPositionInfo
@@ -51,9 +54,9 @@ public class InputManager : Singleton<InputManager>
     private void UpdateTouchPrimary(InputAction.CallbackContext context)
     {
         touchPosition.currentFrameTouchPosition = _playerControls.Touch.PrimaryPosition.ReadValue<Vector2>();
-        touchPosition.deltaTouchPosition = touchPosition.currentFrameTouchPosition - touchPosition.lastFrameTouchPosition;
-        touchPosition.deltaTimeTouchPosition = (float)context.time;
-        touchPosition.lastFrameTouchPosition = touchPosition.currentFrameTouchPosition;
+        touchPosition.deltaTouchPosition        = touchPosition.currentFrameTouchPosition - touchPosition.lastFrameTouchPosition;
+        touchPosition.deltaTimeTouchPosition    = (float)context.time;
+        touchPosition.lastFrameTouchPosition    = touchPosition.currentFrameTouchPosition;
     }
     
     private void StartTouchPrimary(InputAction.CallbackContext context) {
@@ -63,9 +66,5 @@ public class InputManager : Singleton<InputManager>
     private void EndTouchPrimary(InputAction.CallbackContext context) {
         if (OnEndTouch != null) OnEndTouch(_playerControls.Touch.PrimaryPosition.ReadValue<Vector2>(), (float)context.time);
     }
-
-    // private void Tap(InputAction.CallbackContext context) {
-    //     if(OnTap != null) 
-    // }
 
  }

@@ -11,16 +11,13 @@ namespace Player{
         private static Dictionary<string, Action<GameObject>> _collisionDictionary = new Dictionary<string, Action<GameObject>> {
             {"Car", OnCarCollisionEvent},
             {"Street", OnStreetCollisionEvent}
-            
         };
         
         private void OnCollisionEnter(Collision other) {
             string gameTag = other.gameObject.tag;
-            
-                if (_collisionDictionary.ContainsKey(gameTag)) {
-                    Debug.Log(_collisionDictionary[gameTag] == null);
+                if (_collisionDictionary.ContainsKey(gameTag)) 
                     _collisionDictionary[gameTag]?.Invoke(other.gameObject);
-                }
+                
                 else
                     print("Essa colisao nao esta no dicionario");
         }
@@ -33,20 +30,6 @@ namespace Player{
         public static void UnsubscribeOnAEvent(string gametag, Action<GameObject> functionEvent) {
             _collisionDictionary[gametag] -= functionEvent;
         }
-        
-        // public void AddOnDictionary(string gameTag, Action<GameObject> funcAction) {
-        //     if(!_collisionDictionary.ContainsKey(gameTag))  
-        //         _collisionDictionary.Add(gameTag, funcAction);
-        //     
-        //     else 
-        //         _collisionDictionary[gameTag] = funcAction;
-        //     
-        // }
-        //
-        // public void RemoveFromDictionary(string gameTag) {
-        //     if(_collisionDictionary.ContainsKey(gameTag)) 
-        //         _collisionDictionary.Remove(gameTag);
-        // }
         
     }
 }

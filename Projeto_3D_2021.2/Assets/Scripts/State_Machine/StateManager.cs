@@ -11,10 +11,10 @@ namespace State_Machine{
         
         
         private void Start() {
-            fallingState = new Falling(this);
-            flyingState  = new Flying(this);
-            drivingState = new Driving(this);
-            deadState    = new DeadState(this);
+            fallingState.Inject(this);
+            flyingState.Inject(this);
+            drivingState.Inject(this);
+            deadState.Inject(this);
             
             _currentState = fallingState;
 

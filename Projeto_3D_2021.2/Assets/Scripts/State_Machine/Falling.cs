@@ -8,8 +8,8 @@ namespace State_Machine{
     [Serializable]
     public class Falling: BaseState{
         
-        public Falling(StateManager stateManager) : base(stateManager){
-        }
+        // public Falling(StateManager stateManager) : base(stateManager){
+        // }
         public override void OnExecuteState() {
 
             Debug.Log("Caindo");
@@ -28,7 +28,7 @@ namespace State_Machine{
         }
 
         public override void OnSwipeUp() {
-            if(PlayerSingleton.Instance.JetpackFuel > 0)
+            if(PlayerSingleton.Instance.CanFly)
                 _stateManager.ChangeCurrentState(_stateManager.flyingState);
         }
 
@@ -40,6 +40,7 @@ namespace State_Machine{
         public void OnCarCollide(GameObject car) {
             Debug.Log("Evento chamado car");
             _stateManager.drivingState.Car = car;
+            
             _stateManager.drivingState.CarCollision = car.AddComponent<CarCollisions>();
             _stateManager.ChangeCurrentState(_stateManager.drivingState);
         }

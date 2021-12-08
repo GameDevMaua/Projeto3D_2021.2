@@ -343,7 +343,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 349595580}
   m_LocalRotation: {x: 0.20251285, y: -0.047655873, z: 0.009867321, w: 0.9780696}
-  m_LocalPosition: {x: 5.8999996, y: 22.39, z: 0.9000015}
+  m_LocalPosition: {x: 5.8999996, y: 22.490002, z: 0.9000015}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -408,7 +408,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1944984712930345345, guid: 67a27403c0324d44b9dc02d4c8ce95fb, type: 3}
       propertyPath: arrivalRange
-      value: 14
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1944984712930345345, guid: 67a27403c0324d44b9dc02d4c8ce95fb, type: 3}
       propertyPath: steeringForce
@@ -530,15 +530,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4852813413854852728, guid: d510b4687d9343944a95f64b675efc96, type: 3}
       propertyPath: _safeZone
-      value: 15
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4852813413854852728, guid: d510b4687d9343944a95f64b675efc96, type: 3}
       propertyPath: carVelocity
-      value: 25
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4852813413854852728, guid: d510b4687d9343944a95f64b675efc96, type: 3}
       propertyPath: arrivalRange
-      value: 15
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4852813413854852728, guid: d510b4687d9343944a95f64b675efc96, type: 3}
       propertyPath: steeringForce
@@ -627,7 +627,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 874866663}
   m_LocalRotation: {x: 0.20251285, y: -0.047655873, z: 0.009867321, w: 0.9780696}
-  m_LocalPosition: {x: 5.8999996, y: 22.39, z: 0.9000015}
+  m_LocalPosition: {x: 5.8999996, y: 22.490002, z: 0.9000015}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 213737711}
@@ -671,7 +671,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1944984712930345345, guid: 67a27403c0324d44b9dc02d4c8ce95fb, type: 3}
       propertyPath: arrivalRange
-      value: 14
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1944984712930345345, guid: 67a27403c0324d44b9dc02d4c8ce95fb, type: 3}
       propertyPath: steeringForce
@@ -1046,15 +1046,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4852813413854852728, guid: d510b4687d9343944a95f64b675efc96, type: 3}
       propertyPath: _safeZone
-      value: 15
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4852813413854852728, guid: d510b4687d9343944a95f64b675efc96, type: 3}
       propertyPath: carVelocity
-      value: 25
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4852813413854852728, guid: d510b4687d9343944a95f64b675efc96, type: 3}
       propertyPath: arrivalRange
-      value: 15
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4852813413854852728, guid: d510b4687d9343944a95f64b675efc96, type: 3}
       propertyPath: steeringForce
@@ -1137,7 +1137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1944984712930345345, guid: 67a27403c0324d44b9dc02d4c8ce95fb, type: 3}
       propertyPath: arrivalRange
-      value: 14
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1944984712930345345, guid: 67a27403c0324d44b9dc02d4c8ce95fb, type: 3}
       propertyPath: steeringForce
@@ -1254,15 +1254,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4852813413854852728, guid: d510b4687d9343944a95f64b675efc96, type: 3}
       propertyPath: _safeZone
-      value: 15
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4852813413854852728, guid: d510b4687d9343944a95f64b675efc96, type: 3}
       propertyPath: carVelocity
-      value: 25
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4852813413854852728, guid: d510b4687d9343944a95f64b675efc96, type: 3}
       propertyPath: arrivalRange
-      value: 15
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4852813413854852728, guid: d510b4687d9343944a95f64b675efc96, type: 3}
       propertyPath: steeringForce
@@ -1313,6 +1313,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3236707215650822208, guid: a2bee616a8d705d48adffcbb70a22e05, type: 3}
+      propertyPath: drivingState._impulseForce
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3236707215650822208, guid: a2bee616a8d705d48adffcbb70a22e05, type: 3}
+      propertyPath: flyingState._maximumHeight
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 8366714222017210688, guid: a2bee616a8d705d48adffcbb70a22e05, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1343,7 +1351,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8366714223126965260, guid: a2bee616a8d705d48adffcbb70a22e05, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8366714223126965260, guid: a2bee616a8d705d48adffcbb70a22e05, type: 3}
       propertyPath: m_LocalPosition.z

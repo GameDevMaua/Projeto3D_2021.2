@@ -10,11 +10,17 @@ namespace State_Machine{
         protected StateManager _stateManager;
         private Animator _animator;
         public string _animateName;
+
         
-        public BaseState(StateManager stateManager) {
+        // public BaseState(StateManager stateManager) {
+        //     _stateManager = stateManager;
+        // }
+
+        public virtual void Inject(StateManager stateManager) {
             _stateManager = stateManager;
         }
-
+        
+        
         public virtual void OnStateEnter() {
             SwipeEventManager.UpSwipeEvent += OnSwipeUp;
             SwipeEventManager.DownSwipeEvent += OnSwipeDown;
