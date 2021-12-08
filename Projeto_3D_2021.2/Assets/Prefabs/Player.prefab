@@ -43,10 +43,10 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &2093213380231880051
 MonoBehaviour:
@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8db7b76dc784be99f886b4be984f3c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fowardVelocity: 15
+  _fowardVelocity: 20
   _positionsOffset: 10
   _maximumVerticalVel: 10
 --- !u!1 &8366714222017210688
@@ -76,9 +76,10 @@ GameObject:
   - component: {fileID: 8366714222017210719}
   - component: {fileID: 8366714222017210718}
   - component: {fileID: 8366714222017210717}
+  - component: {fileID: 4400314965196699950}
   - component: {fileID: 8366714222017210716}
-  - component: {fileID: 8366714222017210691}
   - component: {fileID: 3236707215650822208}
+  - component: {fileID: 1514729870}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -176,8 +177,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 8366714221972850398}
-  _lerpSpeed: 0.04
-  _maximumFuelInSeconds: 30
+  _lerpSpeed: 0.1
+  _maximumFuelInSeconds: 10
+  _maximumHeight: 25
+  _jetpackFuel: 10
+--- !u!114 &4400314965196699950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8366714222017210688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17304db5ce08f96419b46e19e467a7cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8366714222017210716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,19 +203,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 96f27d942cd8493ba66c9a2cc4b8f275, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character: {fileID: 8366714222017210688}
---- !u!114 &8366714222017210691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8366714222017210688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17304db5ce08f96419b46e19e467a7cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &3236707215650822208
@@ -221,5 +223,22 @@ MonoBehaviour:
     _animateName: 
   flyingState:
     _animateName: 
+    _maximumHeight: 0
   drivingState:
     _animateName: 
+--- !u!54 &1514729870
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8366714222017210688}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0

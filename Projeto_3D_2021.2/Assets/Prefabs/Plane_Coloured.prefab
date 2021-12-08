@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 644525228809455768}
   - component: {fileID: 3314017373655518657}
   - component: {fileID: 3909212885533076976}
+  - component: {fileID: -2029729786018291491}
   m_Layer: 0
   m_Name: Plane_Coloured
-  m_TagString: Untagged
+  m_TagString: Street
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,3 +97,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &-2029729786018291491
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7758288528761639001}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 0.1177907, z: 10}
+  m_Center: {x: 0, y: -0.05889535, z: 0}

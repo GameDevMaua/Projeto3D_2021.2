@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 9142940778575066692}
   - component: {fileID: 7244379812045454515}
   - component: {fileID: 7959513169830822098}
+  - component: {fileID: -4273301433533771261}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Street
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,3 +97,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &-4273301433533771261
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3360946734893514292}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 0.14236832, z: 10}
+  m_Center: {x: 0, y: -0.07118416, z: 0}

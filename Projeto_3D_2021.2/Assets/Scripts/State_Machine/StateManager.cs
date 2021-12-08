@@ -7,13 +7,14 @@ namespace State_Machine{
         public Falling fallingState;
         public Flying flyingState;
         public Driving drivingState;
+        public DeadState deadState;
         
         
         private void Start() {
             fallingState = new Falling(this);
-            flyingState = new Flying(this);
+            flyingState  = new Flying(this);
             drivingState = new Driving(this);
-
+            deadState    = new DeadState(this);
             
             _currentState = fallingState;
 
@@ -21,10 +22,9 @@ namespace State_Machine{
             fallingState._animateName = "Falling";
             flyingState._animateName  = "Flying";
             drivingState._animateName = "Driving";
+            deadState._animateName    = "Dead";
+            
             ChangeCurrentState(fallingState);
-
-
-
         }
 
         public void ChangeCurrentState(BaseState newState) {

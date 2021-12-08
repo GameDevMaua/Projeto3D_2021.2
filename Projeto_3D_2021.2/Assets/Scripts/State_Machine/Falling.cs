@@ -1,6 +1,7 @@
 ﻿using System;
 using Player;
 using UnityEngine;
+using UnityEngine.AI;
 using Vehicle_Manager;
 
 namespace State_Machine{
@@ -16,30 +17,28 @@ namespace State_Machine{
 
         public override void OnStateEnter() {
             base.OnStateEnter();
-
-            PlayerCollisions.OnCarCollisionEvent += OnCarCollide;
+            PlayerCollisions.SubscribeOnAEvent("Street", OnStreetCollided);
+            PlayerCollisions.SubscribeOnAEvent("Car", OnCarCollide);
         }
 
         public override void OnStateLeaving() {
             base.OnStateLeaving();
-            PlayerCollisions.OnCarCollisionEvent -= OnCarCollide;
+            PlayerCollisions.UnsubscribeOnAEvent("Car", OnCarCollide);
+            PlayerCollisions.UnsubscribeOnAEvent("Street", OnStreetCollided);
         }
 
-
-        public bool HaveEnoughFuel() {
-            return PlayerSingleton.Instance.JetpackFuel > 0; //esse zero é arbitrário
-        }
-        
         public override void OnSwipeUp() {
-            if(HaveEnoughFuel())
+            if(PlayerSingleton.Instance.JetpackFuel > 0)
                 _stateManager.ChangeCurrentState(_stateManager.flyingState);
-            else {
-                //todo: fazer um efeito pra mostrar que não tem combustível  
-                
-            }
-            
         }
+
+        public override void OnStreetCollided(GameObject obj) {
+            Debug.Log("Evento chamado street");
+            _stateManager.ChangeCurrentState(_stateManager.deadState);
+        }
+
         public void OnCarCollide(GameObject car) {
+            Debug.Log("Evento chamado car");
             _stateManager.drivingState.Car = car;
             _stateManager.drivingState.CarCollision = car.AddComponent<CarCollisions>();
             _stateManager.ChangeCurrentState(_stateManager.drivingState);

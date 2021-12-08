@@ -15,10 +15,6 @@ namespace State_Machine{
             _stateManager = stateManager;
         }
 
-        public void a() {
-            Debug.Log("Kaaaaaa");
-        }
-        
         public virtual void OnStateEnter() {
             SwipeEventManager.UpSwipeEvent += OnSwipeUp;
             SwipeEventManager.DownSwipeEvent += OnSwipeDown;
@@ -33,6 +29,9 @@ namespace State_Machine{
         public virtual void OnExecuteState() {
             //todo: colocar pro gameobj do player seguir o target
         }
+        
+        public virtual void OnStreetCollided(GameObject obj){}
+        
         
         public virtual void OnStateLeaving() {
             SwipeEventManager.UpSwipeEvent -= OnSwipeUp;

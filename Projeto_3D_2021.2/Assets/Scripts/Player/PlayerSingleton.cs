@@ -7,12 +7,9 @@ namespace Player{
         [SerializeField] private float _lerpSpeed;
         [SerializeField] private float _maximumFuelInSeconds;
 
-
         [SerializeField] private float _maximumHeight;
 
         public bool CanFly { get; set; }
-        
-        
         //todo: Tirar esse serialized field
         [SerializeField]
         private float _jetpackFuel; //esse serialized field é só pra debuggar, a ideia é tirar depois
