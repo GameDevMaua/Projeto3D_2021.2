@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -37,6 +38,23 @@ public class InputManager : Singleton<InputManager>
         _playerControls.Touch.PrimaryContact.canceled += ctx => EndTouchPrimary(ctx);
     }
 
+    public struct TouchPositionInfo
+    {
+        public Vector2 lastFrameTouchPosition;
+        public Vector2 currentFrameTouchPosition;
+        public Vector2 deltaTouchPosition;
+        public float deltaTimeTouchPosition;
+    }
+
+    public TouchPositionInfo touchPosition;
+    private void UpdateTouchPrimary(InputAction.CallbackContext context)
+    {
+        touchPosition.currentFrameTouchPosition = _playerControls.Touch.PrimaryPosition.ReadValue<Vector2>();
+        touchPosition.deltaTouchPosition = touchPosition.currentFrameTouchPosition - touchPosition.lastFrameTouchPosition;
+        touchPosition.deltaTimeTouchPosition = (float)context.time;
+        touchPosition.lastFrameTouchPosition = touchPosition.currentFrameTouchPosition;
+    }
+    
     private void StartTouchPrimary(InputAction.CallbackContext context) {
         if (OnStartTouch != null) OnStartTouch(_playerControls.Touch.PrimaryPosition.ReadValue<Vector2>(), (float)context.startTime);
     }
